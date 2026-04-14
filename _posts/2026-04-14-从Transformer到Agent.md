@@ -11,8 +11,6 @@ tags: [AI, AIGC]
 
 > （注：文档部分内容可能由 AI 生成）
 
-如今AI已经渗透到生活和工作的方方面面，打开手机能刷到AI生成的内容，工作中能用AI写文案、做分析，甚至聊天时都能和AI智能对话。但面对Transformer、大模型、Agent这些高频词汇，很多人难免会犯懵——它们到底是什么？之间有什么关联？
-
 ## 文章结构
 - [Transformer（转换器）](#transformer)
 - [大模型 / LLM](#llm)
@@ -27,6 +25,43 @@ tags: [AI, AIGC]
 - [RAG（检索增强生成）](#rag)
 - [Harness Engineering（驾驭工程）](#harness-engineering)
 - [AI名词关系梳理](#ai名词关系)
+
+## 附加图示与参考链接
+
+以下链接可直接帮助你对照图示和权威解释，更快理解文章内容：
+
+- Transformer 结构图： [The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)
+- Transformer 原始论文： [Attention is All You Need](https://arxiv.org/abs/1706.03762)
+- Agent 工作流程： [LangChain Agents](https://python.langchain.com/en/latest/modules/agents/getting_started.html)
+- RAG 机制图： [Pinecone RAG 介绍](https://www.pinecone.io/learn/rag/)
+- 多模态系统： [GPT-4V 介绍](https://openai.com/research/gpt-4v)
+- Prompt 设计： [OpenAI Prompt Engineering Guide](https://platform.openai.com/docs/guides/prompt-engineering)
+
+> 建议在阅读本篇时，配合上述图示页面浏览，可以直观感受Transformer、Agent、RAG等概念的体系结构和流程。
+
+# 总览：
+本文主要阐述当下AI浪潮下，各种AI相关的核心名词相关的意思是什么，分别有什么作用，承担什么样的责任，扮演什么样的角色。
+接下来就通过CLI开始AI的学习。
+```
+username@mail my-repo $ copilot
+╭────────────────────────────────────────────────────────╮
+   ██████  ██      ████              ┌─────────┐           
+   ██      ██       ██               │ ◠   ◠    │
+   ██      ██       ██               │   ——   │
+   ██      ██       ██               └─────────┘
+   ██████  ██████  ████              Hello World
+╰────────────────────────────────────────────────────────╯
+~/your-project
+
+Type @ to mention files, / for commands, or ? for shortcuts
+shift+tab switch mode
+╰────────────────────────────────────────────────────────╯
+[HOME] ~/my-repo
+> Type @ to mention files, / for commands, or ? for shortcuts
+  shift+tab switch mode
+> run transformer --input "开始学习AI"
+────────────────────────────────────────────────────────
+```
 
 ## 一、底层基石：AI的“建筑骨架”
 
@@ -45,7 +80,7 @@ tags: [AI, AIGC]
 
 **通俗类比**：如果把大模型比作“超级大脑”，Transformer就是大脑的“神经中枢”，没有它，大模型就无法正常思考和工作。
 
-**Transformer 结构图（Command Line Interface 风格）**：
+**Transformer 结构图**：
 ```
 MonaLisa@monasmachine my-repo $ copilot
 ╭────────────────────────────────────────────────────────╮
@@ -65,15 +100,15 @@ shift+tab switch mode
   shift+tab switch mode
 > run transformer --input "今天天气如何"
 ────────────────────────────────────────────────────────
-[INPUT]    "今天天气如何"
-[TOKEN]    tokenization
-[EMBED]     embedding + positional encoding
-[ATTN]     self-attention
-[FFN]      feed-forward network
-[LOOP]     repeat N layers
-[OUTPUT]   decoder generates response
+[INPUT]    输入问题
+[TOKEN]    分词处理
+[EMBED]    向量嵌入 + 位置编码
+[ATTN]     自注意力机制
+[FFN]      前馈网络
+[LOOP]     重复 N 层
+[OUTPUT]   解码器生成回答
 ────────────────────────────────────────────────────────
-[STATUS]   completed
+[STATUS]   完成
 ```
 - 关键点：自注意力让模型“看到整句话”，编码器理解输入，解码器生成输出。
 
@@ -96,7 +131,7 @@ shift+tab switch mode
 
 **通俗类比**：大模型就像一个“饱读诗书的智者”，读遍了天下的书，能回答你的各种问题、帮你完成各种文字相关的工作，而Transformer就是它的“大脑结构”。
 
-**大模型能力对比（Command Line Interface 风格）**：
+**大模型能力对比**：
 ```
 MonaLisa@monasmachine my-repo $ copilot
 ╭────────────────────────────────────────────────────────╮
@@ -116,17 +151,17 @@ shift+tab switch mode
   shift+tab switch mode
 > model compare --type basic
 ────────────────────────────────────────────────────────
-[MODEL]   base-llm
-[RESULT]  simple Q&A
-          keyword matching
-          fixed replies
+[MODEL]   基础大模型
+[RESULT]  简单问答
+          关键词匹配
+          固定回复
 
 > model compare --type large
 ────────────────────────────────────────────────────────
-[MODEL]   gpt-4-like
-[RESULT]  long-form writing
-          logical reasoning
-          multi-turn dialogue
+[MODEL]   GPT-4 类型
+[RESULT]  长文本生成
+          逻辑推理
+          多轮对话
 ```
 - 说明：大模型的优势不仅在于参数数量，更在于“上下文理解”和“连贯生成”。
 
@@ -144,7 +179,7 @@ shift+tab switch mode
 
 **常见实例**：GPT-4V（能看图）、豆包多模态版、MidJourney（生成图片）、部分文本转语音（TTS）工具。
 
-**多模态模型流程（Command Line Interface 风格）**：
+**多模态模型流程**：
 ```
 MonaLisa@monasmachine my-repo $ copilot
 ╭────────────────────────────────────────────────────────╮
@@ -164,13 +199,13 @@ shift+tab switch mode
   shift+tab switch mode
 > multimodal run --input image.jpg --task caption
 ────────────────────────────────────────────────────────
-[LOAD]     image.jpg
-[ENCODE]   image -> visual tokens
-[MERGE]    visual tokens + text prompt
-[PROCESS]  Transformer / multimodal encoder
+[LOAD]     加载图片
+[ENCODE]   图片 -> 视觉 token
+[MERGE]    视觉 token + 文本提示
+[PROCESS]  Transformer / 多模态编码器
 [GENERATE] "这是一只橘色的小猫，正趴在沙发上"
 ────────────────────────────────────────────────────────
-[STATUS]   completed
+[STATUS]   完成
 ```
 - 说明：多模态模型先把不同输入转成统一语义表示，再输出文本、图像或音频结果。
 
@@ -191,7 +226,7 @@ shift+tab switch mode
 
 **通俗类比**：如果大模型是“只会思考的大脑”，Agent就是“会思考+会干活的机器人”，能自己规划、自己动手，帮你搞定各种繁琐的事情。
 
-**Agent 工作流程（Command Line Interface 风格）**：
+**Agent 工作流程**：
 ```
 MonaLisa@monasmachine my-repo $ copilot
 ╭────────────────────────────────────────────────────────╮
@@ -211,15 +246,15 @@ shift+tab switch mode
   shift+tab switch mode
 > agent run --task "订机票+订酒店"
 ────────────────────────────────────────────────────────
-[PARSE]    parse user request
-[PLAN]     generate execution steps
-[CALL]     tool: flight_search
-[CALL]     tool: hotel_search
-[EXEC]     execute booking flow
-[CHECK]    verify results
-[ADJUST]   retry or suggest alternatives
+[PARSE]    解析用户需求
+[PLAN]     生成执行步骤
+[CALL]     工具: flight_search
+[CALL]     工具: hotel_search
+[EXEC]     执行预订流程
+[CHECK]    验证结果
+[ADJUST]   重试或建议替代方案
 ────────────────────────────────────────────────────────
-[STATUS]   completed
+[STATUS]   完成
 ```
 - 说明：Agent 会主动执行并根据结果动态优化方案。
 ### 5. Skill（技能） {#skill}
@@ -234,7 +269,7 @@ shift+tab switch mode
 
 **关联说明**：Agent的能力强弱，取决于它拥有的Skill数量和质量，比如一个“办公Agent”，需要具备“写文案”“做表格”“发邮件”等多个Skill，才能帮你高效完成办公任务。
 
-**Agent 与 Skill 关系（Command Line Interface 风格）**：
+**Agent 与 Skill 关系**：
 ```
 MonaLisa@monasmachine my-repo $ copilot
 ╭────────────────────────────────────────────────────────╮
@@ -254,14 +289,14 @@ shift+tab switch mode
   shift+tab switch mode
 > agent status
 ────────────────────────────────────────────────────────
-[AGENT]   active
-[SKILL]   weather_check   ✓
-[SKILL]   email_send      ✓
-[SKILL]   content_write   ✓
-[SKILL]   data_analysis   ✓
-[NOTES]   all skills ready
+[AGENT]   活跃
+[SKILL]   天气查询       ✓
+[SKILL]   邮件发送       ✓
+[SKILL]   内容写作       ✓
+[SKILL]   数据分析       ✓
+[NOTES]   所有技能就绪
 ────────────────────────────────────────────────────────
-[STATUS]   nominal
+[STATUS]   正常
 ```
 - 说明：Agent 通过调用不同 Skill 模块完成完整任务。
 ### 6. Tool Calling（工具调用） {#tool-calling}
@@ -359,7 +394,7 @@ shift+tab switch mode
 
 - 提升回答的准确性：避免AI编造不存在的信息，比如问“2026年最新房贷政策”，RAG会先检索最新政策，再生成回答。
 
-**RAG 工作流程（Command Line Interface 风格）**：
+**RAG 工作流程**：
 ```
 MonaLisa@monasmachine my-repo $ copilot
 ╭────────────────────────────────────────────────────────╮
@@ -385,7 +420,7 @@ shift+tab switch mode
 [GENERATE]  生成回答
 [OUTPUT]    提供准确结果
 ────────────────────────────────────────────────────────
-[STATUS]    completed
+[STATUS]    完成
 ```
 - 说明：RAG 通过“先检索再生成”减少模型出现错误信息的概率。
 
@@ -405,7 +440,7 @@ shift+tab switch mode
 
 **常见实例**：火山引擎Arkclaw、百度DuMate、腾讯ClawPro等产品，均通过Harness Engineering构建安全沙箱、优化工具链，让AI能自主完成跨应用、跨文件的复杂任务。
 
-**Harness Engineering 逻辑（Command Line Interface 风格）**：
+**Harness Engineering 逻辑**：
 ```
 MonaLisa@monasmachine my-repo $ copilot
 ╭────────────────────────────────────────────────────────╮
@@ -425,14 +460,14 @@ shift+tab switch mode
   shift+tab switch mode
 > harness status
 ────────────────────────────────────────────────────────
-[MODEL]     GPT-4v running
-[ENV]       sandbox mode enabled
-[TOOL]      control active
-[CHECK]     output safety validated
-[FEEDBACK]  issue detected
-[OPTIMIZE]  strategy updated
+[MODEL]     GPT-4v 运行中
+[ENV]       沙箱模式已启用
+[TOOL]      控制活跃
+[CHECK]     输出安全已验证
+[FEEDBACK]  检测到问题
+[OPTIMIZE]  策略已更新
 ────────────────────────────────────────────────────────
-[STATUS]    operational
+[STATUS]    运行中
 ```
 - 说明：Harness Engineering 是“给 AI 装上马具”，让它更可靠、更可控。
 
@@ -456,7 +491,7 @@ shift+tab switch mode
 
 **Transformer（底层架构）→ 搭建出大模型/多模态模型（核心大脑）→ 大模型驱动Agent（智能执行者）→ Agent依靠Skill（技能）和Tool Calling（工具调用）完成任务 → 用CLI/API/MCP（操控工具）进行调度和运行****，****通过Prompt（提示词）、Fine\-tuning（微调）、RAG（检索增强）****、Harness Engineering（驾驭工程）****优化AI的表现**
 
-**AI 名词关系总览（Command Line Interface 风格）**：
+**AI 名词关系总览**：
 ```
 MonaLisa@monasmachine my-repo $ copilot
 ╭────────────────────────────────────────────────────────╮
@@ -485,26 +520,3 @@ shift+tab switch mode
 [STATUS]   overview complete
 ```
 - 说明：这张结构图把文章中的核心名词按层级关系串联起来，帮助读者从宏观上把握 AI 体系。
-
-## 附加图示与参考链接
-
-以下链接可直接帮助你对照图示和权威解释，更快理解文章内容：
-
-- Transformer 结构图： [The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)
-- Transformer 原始论文： [Attention is All You Need](https://arxiv.org/abs/1706.03762)
-- Agent 工作流程： [LangChain Agents](https://python.langchain.com/en/latest/modules/agents/getting_started.html)
-- RAG 机制图： [Pinecone RAG 介绍](https://www.pinecone.io/learn/rag/)
-- 多模态系统： [GPT-4V 介绍](https://openai.com/research/gpt-4v)
-- Prompt 设计： [OpenAI Prompt Engineering Guide](https://platform.openai.com/docs/guides/prompt-engineering)
-
-> 建议在阅读本篇时，配合上述图示页面浏览，可以直观感受Transformer、Agent、RAG等概念的体系结构和流程。
-
-## 七、总结：小白入门避坑指南
-
-1\. 不用死记硬背，重点理解“层级关系”：Transformer是地基，大模型是核心，Agent是延伸，其他名词都是“辅助工具”或“补充知识点”。
-
-2\. 遇到不懂的名词，先看它属于“底层架构”“核心模型”“智能延伸”还是“辅助工具”，再结合类比理解，不用纠结专业术语。
-
-3\. 实践是最好的学习方式：用AI写一段文案、让Agent帮你订个提醒，在使用中理解这些名词的实际用途，比单纯看理论更高效。
-
-看完这篇博客，相信你已经能轻松分辨AI圈的各种名词，再也不会被“Transformer”“Agent”这些词汇劝退啦～ 后续如果遇到新的AI名词，也可以回头看看这篇，帮你快速定位和理解！
