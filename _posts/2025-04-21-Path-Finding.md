@@ -31,8 +31,7 @@ tags:
 
 ## 实用性分析
 
-<a id="bfs"></a>
-### 1. 广度优先搜索 (BFS)
+### 1. 广度优先搜索 (BFS) {#bfs}
 - **实用性评分**: ★★★★☆
 - **优势**: 实现简单，保证最短路径（无权图），内存占用适中
 - **劣势**: 不考虑边权重，在大型图中效率较低
@@ -69,8 +68,7 @@ maze = [
 print(bfs_shortest_path(maze, (0,0), (1,3)))  # 输出 4
 ```
 
-<a id="dijkstra"></a>
-### 2. Dijkstra算法
+### 2. Dijkstra算法 {#dijkstra}
 - **实用性评分**: ★★★★★
 - **优势**: 处理带权图效率高，结果准确
 - **劣势**: 不能处理负权边，在稀疏图上可能不如启发式算法
@@ -107,8 +105,7 @@ graph = {
 print(dijkstra(graph, 'A'))  # 输出 {'A':0,'B':3,'C':1,'D':4}
 ```
 
-<a id="a-algorithm"></a>
-### 3. A*算法
+### 3. A*算法 {#a-algorithm}
 - **实用性评分**: ★★★★★
 - **优势**: 结合启发式方法提高效率，适应性强
 - **劣势**: 启发函数设计复杂，不当的启发函数可能导致次优解
@@ -159,8 +156,7 @@ grid = [
 print(a_star(grid, (0,0), (3,3)))
 ```
 
-<a id="dfs"></a>
-### 4. 深度优先搜索 (DFS)
+### 4. 深度优先搜索 (DFS) {#dfs}
 - **实用性评分**: ★★★☆☆
 - **优势**: 实现简单，内存占用小
 - **劣势**: 不保证最短路径，可能陷入死循环
@@ -189,8 +185,7 @@ dfs(graph, 'A', visited, result)
 print(result[::-1])  # 拓扑排序输出 ['A','C','B','D'] 或 ['A','B','C','D']
 ```
 
-<a id="bellman-ford"></a>
-### 5. Bellman-Ford算法
+### 5. Bellman-Ford算法 {#bellman-ford}
 - **实用性评分**: ★★★☆☆
 - **优势**: 可处理负权边，能检测负权环
 - **劣势**: 时间复杂度高，在大型图上效率低
@@ -223,8 +218,7 @@ nodes = {'A','B','C','D'}
 print(bellman_ford(edges, nodes, 'A'))
 ```
 
-<a id="floyd-warshall"></a>
-### 6. Floyd-Warshall算法
+### 6. Floyd-Warshall算法 {#floyd-warshall}
 - **实用性评分**: ★★★☆☆
 - **优势**: 计算所有点对最短路径，实现简单
 - **劣势**: 时间和空间复杂度高，不适用于大型图
@@ -252,8 +246,7 @@ dist = [
 print(floyd_warshall(dist))
 ```
 
-<a id="jump-point-search"></a>
-### 7. Jump Point Search (JPS)
+### 7. Jump Point Search (JPS) {#jump-point-search}
 - **实用性评分**: ★★★★☆
 - **优势**: 在网格地图上比 A* 更高效，能跳过冗余节点
 - **劣势**: 实现复杂，仅适用于正则网格地图

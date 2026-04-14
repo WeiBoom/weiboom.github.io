@@ -30,8 +30,7 @@ tags: [AI, AIGC]
 
 ## 一、底层基石：AI的“建筑骨架”
 
-<a id="transformer"></a>
-### 1. Transformer（转换器）
+### 1. Transformer（转换器） {#transformer}
 
 **核心定义**：2017年由谷歌团队提出的一种神经网络架构，它是近几年最主流的现代大模型的基础之一，尤其是大多数语言模型和多模态模型都基于它或其变体构建。
 
@@ -80,8 +79,7 @@ shift+tab switch mode
 
 ## 二、核心主体：AI的“超级大脑”
 
-<a id="llm"></a>
-### 2. 大模型 / LLM（Large Language Model，大语言模型）
+### 2. 大模型 / LLM（Large Language Model，大语言模型） {#llm}
 
 **核心定义**：通常基于Transformer架构训练而成，参数规模达到亿级、百亿级甚至万亿级，能理解人类语言、生成文本、进行基本推理的AI模型，是AI的“核心大脑”。
 
@@ -132,8 +130,7 @@ shift+tab switch mode
 ```
 - 说明：大模型的优势不仅在于参数数量，更在于“上下文理解”和“连贯生成”。
 
-<a id="multimodal"></a>
-### 3. Multimodal（多模态模型）
+### 3. Multimodal（多模态模型） {#multimodal}
 
 **核心定义**：在大模型的基础上，增加了对图像、音频、视频等多种类型信息的处理能力，打破了“只能处理文本”的局限，能实现“看图说话”“听声辨意”。
 
@@ -179,8 +176,7 @@ shift+tab switch mode
 
 ## 三、智能延伸：AI的“手脚与能力”
 
-<a id="agent"></a>
-### 4. Agent（智能体）
+### 4. Agent（智能体） {#agent}
 
 **核心定义**：基于大模型开发的“智能执行者”，具备自主感知、规划、行动、反思的能力，相当于给大模型装上“手脚”，能主动完成复杂任务，而不是被动等待指令。
 
@@ -226,8 +222,7 @@ shift+tab switch mode
 [STATUS]   completed
 ```
 - 说明：Agent 会主动执行并根据结果动态优化方案。
-<a id="skill"></a>
-### 5. Skill（技能）
+### 5. Skill（技能） {#skill}
 
 **核心定义**：Agent能执行的“单个具体能力”，相当于Agent的“工具箱里的工具”，每个Skill对应一个具体的任务，多个Skill组合起来，就能完成复杂任务。
 
@@ -269,8 +264,7 @@ shift+tab switch mode
 [STATUS]   nominal
 ```
 - 说明：Agent 通过调用不同 Skill 模块完成完整任务。
-<a id="tool-calling"></a>
-### 6. Tool Calling（工具调用）
+### 6. Tool Calling（工具调用） {#tool-calling}
 
 **核心定义**：Agent的核心能力之一，指Agent能主动识别任务需求，调用外部工具（API、搜索引擎、软件等），弥补大模型的不足，完成仅靠大模型无法完成的任务。
 
@@ -279,8 +273,8 @@ shift+tab switch mode
 **实例场景**：你让Agent“帮我查一下今天北京的天气，然后提醒我要不要带伞”，Agent会先调用“天气API”查天气，再根据天气情况，调用“日历提醒”工具给你发提醒。
 
 ## 四、辅助工具：操控与优化AI的“手段”
-<a id="cli"></a>
-### 7. CLI（Command Line Interface，命令行界面）
+
+### 7. CLI（Command Line Interface，命令行界面） {#cli}
 
 **核心定义**：一种通过输入文字命令来操控计算机、AI模型、Agent的界面，没有图形化界面（黑底白字），是开发者常用的“操控工具”。
 
@@ -315,8 +309,7 @@ shift+tab switch mode
 ```
 - 说明：CLI 是一种“文本指令界面”，适合开发者快速控制模型和任务。
 
-<a id="mcp"></a>
-### 8. MCP（多含义缩写，AI领域常用）
+### 8. MCP（多含义缩写，AI领域常用） {#mcp}
 
 **核心定义**：AI领域没有固定统一的含义，常见有3种，根据场景判断：
 
@@ -328,8 +321,7 @@ shift+tab switch mode
 
 **通俗类比**：如果把多个AI模型比作“多个工人”，MCP（模型控制平面）就是“工头”，负责分配任务、协调工作，让多个工人高效配合。
 
-<a id="prompt"></a>
-### 9. Prompt（提示词）
+### 9. Prompt（提示词） {#prompt}
 
 **核心定义**：用户给AI的“指令”，是AI理解用户需求、生成对应输出的关键，相当于“和AI沟通的语言”。
 
@@ -345,8 +337,7 @@ shift+tab switch mode
 
 - 精准提示：写一篇500字的青岛旅行文案，重点推荐海边景点，风格治愈，适合发朋友圈，包含“海风”“啤酒”“落日”三个关键词。
 
-<a id="fine-tuning"></a>
-### 10. Fine-tuning（微调）
+### 10. Fine-tuning（微调） {#fine-tuning}
 
 **核心定义**：在大模型的基础上，用特定领域的数据再训练模型，让模型更贴合具体场景、更专业，相当于“给大模型‘补课’”。
 
@@ -358,8 +349,7 @@ shift+tab switch mode
 
 **通俗类比**：大模型就像一个“全能学霸”，微调就相当于让它“专攻某一门学科”，比如专攻医学、法律，成为这一领域的“专家”。
 
-<a id="rag"></a>
-### 11. RAG（Retrieval-Augmented Generation，检索增强生成）
+### 11. RAG（Retrieval-Augmented Generation，检索增强生成） {#rag}
 
 **核心定义**：给大模型“外挂一个知识库”，让AI在回答问题前，先从知识库中检索相关信息，再结合自身知识生成回答，避免“胡说八道”（幻觉）。
 
@@ -399,8 +389,7 @@ shift+tab switch mode
 ```
 - 说明：RAG 通过“先检索再生成”减少模型出现错误信息的概率。
 
-<a id="harness-engineering"></a>
-### 12. Harness Engineering（驾驭工程）
+### 12. Harness Engineering（驾驭工程） {#harness-engineering}
 
 **核心定义**：直译为“驾驭工程”，是AI行业新型工程化范式，核心是为AI智能体（Agent）构建一套完整的运行环境、约束规则与反馈闭环，不侧重提升模型本身性能，而是通过优化“驾驭模型的系统环境”，让AI可靠、自主地完成复杂工作，弥补通用大模型在真实场景中的泛化性不足。
 
@@ -447,6 +436,8 @@ shift+tab switch mode
 ```
 - 说明：Harness Engineering 是“给 AI 装上马具”，让它更可靠、更可控。
 
+### 12. Harness Engineering（驾驭工程） {#harness-engineering}
+
 ## 五、补充名词：AI入门必知的“小知识点”
 
 - **Embedding（向量嵌入）**：把文字、图片等信息转换成机器能理解的“数字向量”，相当于给AI的“语言翻译器”，让机器能识别语义、区分不同信息的差异。比如“猫”和“狗”的向量会有明显区别，机器能通过向量判断两者的不同。
@@ -459,8 +450,7 @@ shift+tab switch mode
 
 - **Context Window（上下文窗口）**：AI能记住的“对话/文本长度”，窗口越大，AI能记住的内容越多，比如上下文窗口为1000Token，AI能记住你之前1000个Token的对话内容，避免“转头就忘”。
 
-<a id="ai名词关系"></a>
-## 六、核心关系梳理：一张图看懂所有名词关联
+## 六、核心关系梳理：一张图看懂所有名词关联 {#ai名词关系}
 
 很多人看完单个名词还是会懵，其实这些名词之间有清晰的层级关系，用一句话就能串起来：
 
