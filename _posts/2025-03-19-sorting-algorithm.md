@@ -1,9 +1,9 @@
 ---
 title: Sorting Algorithm - 排序算法
-date: 2025-03-19  # 添加日期
-tags: 
-    - 算法
-    - 排序
+author: WEI
+date: 2025-03-19
+categories: [Blogging]
+tags: [Algorithm]
 ---
 
 ## 排序算法
@@ -25,8 +25,8 @@ tags:
 | [选择排序]       | O(n²)           | O(1)      | O(n²)         | O(n²)         |
 | [插入排序]       | O(n²)           | O(1)      | O(n)          | O(n²)         |
 | [希尔排序]       | O(n log n) ~ O(n²) | O(1)    | O(n log n)    | O(n²)         |
-| [归并排序])       | O(n log n)      | O(n)      | O(n log n)    | O(n log n)    |
-| [快速排序])       | O(n log n)      | O(log n)  | O(n log n)    | O(n²)         |
+| [归并排序]       | O(n log n)      | O(n)      | O(n log n)    | O(n log n)    |
+| [快速排序]       | O(n log n)      | O(log n)  | O(n log n)    | O(n²)         |
 | [堆排序]         | O(n log n)      | O(1)      | O(n log n)    | O(n log n)    |
 | [计数排序]       | O(n + k)        | O(k)      | O(n + k)      | O(n + k)      |
 

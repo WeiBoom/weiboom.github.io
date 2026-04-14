@@ -1,5 +1,10 @@
 ---
 title: Path Finding - 寻路算法
+author: WEI
+date: 2025-04-21
+categories: [Blogging]
+tags: [Algorithm, PathFinding]
+title: Path Finding - 寻路算法
 date: 2025-04-21
 tags: 
     - 算法

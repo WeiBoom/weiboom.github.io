@@ -1,9 +1,9 @@
 ---
 title: Learn AI | From Transformer To Agent
+author: WEI
 date: 2026-04-14
-tags: 
-    - AI
-    - AIGC
+categories: [Blogging]
+tags: [AI, AIGC]
 ---
 
 
