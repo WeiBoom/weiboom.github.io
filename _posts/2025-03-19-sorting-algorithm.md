@@ -1,5 +1,5 @@
 ---
-title: 八大排序算法
+title: Sorting Algorithm - 排序算法
 date: 2025-03-19  # 添加日期
 tags: 
     - 算法

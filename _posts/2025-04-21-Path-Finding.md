@@ -1,5 +1,5 @@
 ---
-title: Path Findingg
+title: Path Finding - 寻路算法
 date: 2025-04-21
 tags: 
     - 算法
