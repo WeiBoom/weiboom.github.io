@@ -82,22 +82,12 @@ shift+tab switch mode
 
 **Transformer 结构图**：
 ```
-MonaLisa@monasmachine my-repo $ copilot
-╭────────────────────────────────────────────────────────╮
-   ██████  ██      ████              ┌─────────┐           
-   ██      ██       ██               │ ◠   ◠    │
-   ██      ██       ██               │   ——   │
-   ██      ██       ██               └─────────┘
-   ██████  ██████  ████              Hello World
-╰────────────────────────────────────────────────────────╯
-~/your-project
-
-Type @ to mention files, / for commands, or ? for shortcuts
-shift+tab switch mode
-╰────────────────────────────────────────────────────────╯
-[HOME] ~/my-repo
-> Type @ to mention files, / for commands, or ? for shortcuts
-  shift+tab switch mode
+weiboom@agent my-repo $ copilot
+╭────────────────────────────────────────────────────────────╮
+   ██████  ██      ████              ┌─────────┐     AI          
+   ██      ██       ██               │ ●   ●   | 
+   ██████  ██████  ████              └─ ── ────┘ Transformer
+╰────────────────────────────────────────────────────────────╯
 > run transformer --input "今天天气如何"
 ────────────────────────────────────────────────────────
 [INPUT]    输入问题
@@ -133,22 +123,12 @@ shift+tab switch mode
 
 **大模型能力对比**：
 ```
-MonaLisa@monasmachine my-repo $ copilot
+weiboom@agent my-repo $ copilot
 ╭────────────────────────────────────────────────────────╮
-   ██████  ██      ████              ┌─────────┐           
-   ██      ██       ██               │ ◡   ◡    │
-   ██      ██       ██               │   ——   │
-   ██      ██       ██               └─────────┘
-   ██████  ██████  ████              Hello World
+   ██████  ██      ████              ┌─────────┐ Big          
+   ██      ██       ██               │ ●   ●   | 
+   ██████  ██████  ████              └─ ── ────┘ Model
 ╰────────────────────────────────────────────────────────╯
-~/your-project
-
-Type @ to mention files, / for commands, or ? for shortcuts
-shift+tab switch mode
-╰────────────────────────────────────────────────────────╯
-[HOME] ~/my-repo
-> Type @ to mention files, / for commands, or ? for shortcuts
-  shift+tab switch mode
 > model compare --type basic
 ────────────────────────────────────────────────────────
 [MODEL]   基础大模型
@@ -181,22 +161,12 @@ shift+tab switch mode
 
 **多模态模型流程**：
 ```
-MonaLisa@monasmachine my-repo $ copilot
+weiboom@agent my-repo $ copilot
 ╭────────────────────────────────────────────────────────╮
-   ██████  ██      ████              ┌─────────┐           
-   ██      ██       ██               │ ◠   ◠    │
-   ██      ██       ██               │   ——   │
-   ██      ██       ██               └─────────┘
-   ██████  ██████  ████              Hello World
+   ██████  ██      ████              ┌─────────┐ Input          
+   ██      ██       ██               │ ●   ●   | 
+   ██████  ██████  ████              └─ ── ────┘ Task
 ╰────────────────────────────────────────────────────────╯
-~/your-project
-
-Type @ to mention files, / for commands, or ? for shortcuts
-shift+tab switch mode
-╰────────────────────────────────────────────────────────╯
-[HOME] ~/my-repo
-> Type @ to mention files, / for commands, or ? for shortcuts
-  shift+tab switch mode
 > multimodal run --input image.jpg --task caption
 ────────────────────────────────────────────────────────
 [LOAD]     加载图片
@@ -228,22 +198,12 @@ shift+tab switch mode
 
 **Agent 工作流程**：
 ```
-MonaLisa@monasmachine my-repo $ copilot
+weiboom@agent my-repo $ copilot
 ╭────────────────────────────────────────────────────────╮
-   ██████  ██      ████              ┌─────────┐           
-   ██      ██       ██               │ ●   ●    │
-   ██      ██       ██               │   ——   │
-   ██      ██       ██               └─────────┘
-   ██████  ██████  ████              Hello World
+   ██████  ██      ████              ┌─────────┐ CLI          
+   ██      ██       ██               │ ●   ●   | 
+   ██████  ██████  ████              └─────────┘ Agent
 ╰────────────────────────────────────────────────────────╯
-~/your-project
-
-Type @ to mention files, / for commands, or ? for shortcuts
-shift+tab switch mode
-╰────────────────────────────────────────────────────────╯
-[HOME] ~/my-repo
-> Type @ to mention files, / for commands, or ? for shortcuts
-  shift+tab switch mode
 > agent run --task "订机票+订酒店"
 ────────────────────────────────────────────────────────
 [PARSE]    解析用户需求
@@ -271,22 +231,12 @@ shift+tab switch mode
 
 **Agent 与 Skill 关系**：
 ```
-MonaLisa@monasmachine my-repo $ copilot
+weiboom@agent my-repo $ copilot
 ╭────────────────────────────────────────────────────────╮
-   ██████  ██      ████              ┌─────────┐           
-   ██      ██       ██               │ ◠   ◠    │
-   ██      ██       ██               │   ——   │
-   ██      ██       ██               └─────────┘
-   ██████  ██████  ████              Hello World
+   ██████  ██      ████              ┌─────────┐ Agent          
+   ██      ██       ██               │ ●   ●   | 
+   ██████  ██████  ████              └─────────┘ Skill
 ╰────────────────────────────────────────────────────────╯
-~/your-project
-
-Type @ to mention files, / for commands, or ? for shortcuts
-shift+tab switch mode
-╰────────────────────────────────────────────────────────╯
-[HOME] ~/my-repo
-> Type @ to mention files, / for commands, or ? for shortcuts
-  shift+tab switch mode
 > agent status
 ────────────────────────────────────────────────────────
 [AGENT]   活跃
@@ -325,13 +275,11 @@ shift+tab switch mode
 
 **CLI 示例图**：
 ```
-MonaLisa@monasmachine my-repo $ copilot
+weiboom@agent my-repo $ copilot
 ╭────────────────────────────────────────────────────────╮
-   ██████  ██      ████              ┌─────────┐           
-   ██      ██       ██               │ ◡   ◡    │
-   ██      ██       ██               │   ——   │
-   ██      ██       ██               └─────────┘
-   ██████  ██████  ████              Hello World
+   ██████  ██      ████              ┌─────────┐ CLI          
+   ██      ██       ██               │ ●   ●   | 
+   ██████  ██████  ████              └─────────┘ Text
 ╰────────────────────────────────────────────────────────╯
 ~/your-project
 
@@ -396,22 +344,12 @@ shift+tab switch mode
 
 **RAG 工作流程**：
 ```
-MonaLisa@monasmachine my-repo $ copilot
+weiboom@agent my-repo $ copilot
 ╭────────────────────────────────────────────────────────╮
-   ██████  ██      ████              ┌─────────┐           
-   ██      ██       ██               │ ●   ●    │
-   ██      ██       ██               │   ——   │
-   ██      ██       ██               └─────────┘
-   ██████  ██████  ████              Hello World
+   ██████  ██      ████              ┌─────────┐ AI          
+   ██      ██       ██               │ ●   ●   | 
+   ██████  ██████  ████              └─────────┘ RAG
 ╰────────────────────────────────────────────────────────╯
-~/your-project
-
-Type @ to mention files, / for commands, or ? for shortcuts
-shift+tab switch mode
-╰────────────────────────────────────────────────────────╯
-[HOME] ~/my-repo
-> Type @ to mention files, / for commands, or ? for shortcuts
-  shift+tab switch mode
 > rag query "2026年最新房贷政策"
 ────────────────────────────────────────────────────────
 [SEARCH]    检索知识库
@@ -442,22 +380,12 @@ shift+tab switch mode
 
 **Harness Engineering 逻辑**：
 ```
-MonaLisa@monasmachine my-repo $ copilot
-╭────────────────────────────────────────────────────────╮
-   ██████  ██      ████              ┌─────────┐           
-   ██      ██       ██               │ ◡   ◡    │
-   ██      ██       ██               │   ——   │
-   ██      ██       ██               └─────────┘
-   ██████  ██████  ████              Hello World
-╰────────────────────────────────────────────────────────╯
-~/your-project
-
-Type @ to mention files, / for commands, or ? for shortcuts
-shift+tab switch mode
-╰────────────────────────────────────────────────────────╯
-[HOME] ~/my-repo
-> Type @ to mention files, / for commands, or ? for shortcuts
-  shift+tab switch mode
+weiboom@agent my-repo $ copilot
+╭────────────────────────────────────────────────────────────╮
+   ██████  ██      ████              ┌─────────┐   Harness          
+   ██      ██       ██               │ ●   ●   | 
+   ██████  ██████  ████              └─────────┘ Engineering
+╰────────────────────────────────────────────────────────────╯
 > harness status
 ────────────────────────────────────────────────────────
 [MODEL]     GPT-4v 运行中
@@ -493,23 +421,13 @@ shift+tab switch mode
 
 **AI 名词关系总览**：
 ```
-MonaLisa@monasmachine my-repo $ copilot
+weiboom@agent my-repo $ copilot
 ╭────────────────────────────────────────────────────────╮
-   ██████  ██      ████              ┌─────────┐           
-   ██      ██       ██               │ ◠   ◠    │
-   ██      ██       ██               │   ——   │
-   ██      ██       ██               └─────────┘
-   ██████  ██████  ████              Hello World
+   ██████  ██      ████              ┌─────────┐ Thanks       
+   ██      ██       ██               │ ◠   ◠   | for 
+   ██      ██       ██               │   ——   |
+   ██████  ██████  ████              └─────────┘ Reading
 ╰────────────────────────────────────────────────────────╯
-~/your-project
-
-Type @ to mention files, / for commands, or ? for shortcuts
-shift+tab switch mode
-╰────────────────────────────────────────────────────────╯
-[HOME] ~/my-repo
-> Type @ to mention files, / for commands, or ? for shortcuts
-  shift+tab switch mode
-> topo
 ────────────────────────────────────────────────────────
 [AI TOPOLOGY]
   Transformer -> 大模型 / 多模态模型 -> Agent
