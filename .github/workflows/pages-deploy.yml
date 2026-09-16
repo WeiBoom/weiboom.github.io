@@ -1,3 +1,10 @@
+# ============================================================================
+# 注意：仓库 Settings → Pages → Source 必须设为 "GitHub Actions"。
+# 千万不要设为 "Deploy from a branch"：那样 GitHub 会在每次 push 时额外运行内置的
+# "pages build and deployment"，而由于仓库根目录存在 .nojekyll，该流程不会执行
+# Jekyll 构建，而是把仓库源码（含 _config.yml / Gemfile / README.md）原样发布到站点，
+# 覆盖掉本工作流产出的正确站点，线上就会出现未渲染的 front matter 和大量 404。
+# ============================================================================
 name: "Build and Deploy"
 on:
   push:
