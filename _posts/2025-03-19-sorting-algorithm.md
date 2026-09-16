@@ -46,8 +46,7 @@ tags: [Algorithm]
 4. 持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
 
 代码实现：
-
-- C++
+<details><summary>C++</summary>
 
 ```cpp
 // C++ 实现
@@ -66,7 +65,8 @@ void bubbleSort(vector<int>& arr) {
 }
 ```
 
-- C#
+</details>
+<details><summary>C#</summary>
 
 ``` csharp
 // 时间复杂度：O(n²) 最好O(n) 空间复杂度：O(1
@@ -85,7 +85,8 @@ int n = arr.Length;
 }
 ```
 
-- Python
+</details>
+<details><summary>Python</summary>
 
 ```python
 # 时间复杂度：O(n²) 最好O(n) 空间复杂度：O(1)
@@ -100,6 +101,8 @@ def bubble_sort(arr):
         if not swapped:
             break
 ```
+
+</details>
 
 ### 2-选择排序
 ***时间复杂度：O(n²) 最好O(n) 空间复杂度：O(1)***
@@ -117,8 +120,7 @@ Tip : 适用于小规模数据，内存空间有限的情况
 
 代码实现
 
-
-- C++
+<details><summary>C++</summary>
 
 ```cpp
 // 时间复杂度：O(n²) 空间复杂度：O(1)
@@ -135,7 +137,9 @@ void selectionSort(vector<int>& arr) {
     }
 }
 ```
-- C#
+
+</details>
+<details><summary>C#</summary>
 
 ```csharp
 // 时间复杂度：O(n²) 空间复杂度：O(1)
@@ -152,7 +156,9 @@ public static void SelectionSort(int[] arr) {
     }
 }
 ```
-- Python
+
+</details>
+<details><summary>Python</summary>
 
 ```python
 # 时间复杂度：O(n²) 空间复杂度：O(1)
@@ -165,6 +171,8 @@ def selection_sort(arr):
                 min_idx = j
         arr[i], arr[min_idx] = arr[min_idx], arr[i]
 ```
+
+</details>
 
 ### 3-插入排序
 ***时间复杂度：O(n²) 最好O(n) 空间复杂度：O(1)***
@@ -180,8 +188,7 @@ def selection_sort(arr):
 
 代码实现
 
-
-- C++
+<details><summary>C++</summary>
 
 ```cpp
 void insertionSort(vector<int>& arr) {
@@ -197,7 +204,9 @@ void insertionSort(vector<int>& arr) {
     }
 }
 ```
-- C#
+
+</details>
+<details><summary>C#</summary>
 
 ```csharp
 // 时间复杂度：O(n²) 最好O(n) 空间复杂度：O(1)
@@ -214,7 +223,9 @@ public static void InsertionSort(int[] arr) {
     }
 }
 ```
-- Python
+
+</details>
+<details><summary>Python</summary>
 
 ```python
 # 时间复杂度：O(n²) 最好O(n) 空间复杂度：O(1)
@@ -228,7 +239,7 @@ def insertion_sort(arr):
         arr[j + 1] = key
 ```
 
-### 4-希尔排序
+</details>
 ***时间复杂度：O(n²) 最好O(n) 空间复杂度：O(1)***
 
 希尔排序（Shell Sort）是一种改进的插入排序算法，它的基本思想是：将待排序的序列分成若干个子序列，对每个子序列进行插入排序，然后逐步缩小子序列的长度，最终得到一个有序的序列。
@@ -239,8 +250,7 @@ def insertion_sort(arr):
 1. 首先将待排序序列分成若干个子序列，每个子序列的长度为gap。
 2. 对每个子序列进行插入排序。
 3. 逐步缩小gap的长度，重复第二步，直到gap=1。
-
-- C++
+<details><summary>C++</summary>
 
 ```cpp
 // 时间复杂度：O(n log n) 到 O(n²) 空间复杂度：O(1)
@@ -259,7 +269,9 @@ void shellSort(vector<int>& arr) {
     }
 }
 ```
-- C#
+
+</details>
+<details><summary>C#</summary>
 
 ```csharp
 // 时间复杂度：O(n log n) 到 O(n²) 空间复杂度：O(1)
@@ -277,7 +289,9 @@ public static void ShellSort(int[] arr) {
     }
 }
 ```
-- Python
+
+</details>
+<details><summary>Python</summary>
 
 ```python
 # 时间复杂度：O(n log n) 到 O(n²) 空间复杂度：O(1)
@@ -295,7 +309,7 @@ def shell_sort(arr):
         gap //= 2
 ```
 
-### 5-归并排序
+</details>
 ***时间复杂度：O(n log n) 空间复杂度：O(n)***
 
 归并排序（Merge Sort）是一种基于分治思想的排序算法，它的基本思想是：将待排序的序列分成若干个子序列，对每个子序列进行排序，然后将排序好的子序列合并成一个有序的序列。
@@ -308,8 +322,7 @@ def shell_sort(arr):
 3. 将两个有序的子序列合并成一个有序的序列。
 
 代码实现
-
-- C++
+<details><summary>C++</summary>
 
 ```cpp
 // 时间复杂度：O(n log n) 空间复杂度：O(n)
@@ -339,7 +352,9 @@ void mergeSort(vector<int>& arr, int left, int right) {
     merge(arr, left, mid, right);
 }
 ```
-- C#
+
+</details>
+<details><summary>C#</summary>
 
 ```csharp
 // 时间复杂度：O(n log n) 空间复杂度：O(n)
@@ -368,8 +383,10 @@ private static void Merge(int[] arr, int left, int mid, int right) {
     }
 }
 ```
-- Python
 
+</details>
+
+<details><summary>python</summary>
 ```python
 # 时间复杂度：O(n log n) 空间复杂度：O(n)
 def merge_sort(arr):
@@ -395,7 +412,8 @@ def merge(left, right):
     return result
 ```
 
-### 6-快速排序
+</details>
+
 ***时间复杂度：O(n log n) 最坏O(n²) 空间复杂度：O(log n)***
 
 快速排序（Quick Sort）是一种基于分治思想的排序算法，它的基本思想是：通过一趟排序将待排序序列分成两个子序列，其中一个子序列的所有元素都比另一个子序列的所有元素小，然后对这两个子序列分别进行快速排序，最终将整个序列排序。
@@ -407,8 +425,7 @@ def merge(left, right):
 2. 对这两个子序列分别进行快速排序。
 3. 将两个子序列合并成一个有序的序列。
 
-代码实现
-- C++
+代码实现<details><summary>C++</summary>
 
 ```cpp
 // 时间复杂度：O(n log n) 最坏O(n²) 空间复杂度：O(log n)
@@ -434,7 +451,9 @@ void quickSort(vector<int>& arr, int low, int high) {
     }
 }
 ```
-- C#
+
+</details>
+<details><summary>C#</summary>
 
 ```csharp
 // 时间复杂度：O(n log n) 最坏O(n²) 空间复杂度：O(log n)
@@ -459,7 +478,9 @@ private static int Partition(int[] arr, int low, int high) {
     return i + 1;
 }
 ```
-- Python
+
+</details>
+<details><summary>Python</summary>
 
 ```python
 # 时间复杂度：O(n log n) 最坏O(n²) 空间复杂度：O(log n)
@@ -472,6 +493,8 @@ def quick_sort(arr):
     right = [x for x in arr if x > pivot]
     return quick_sort(left) + middle + quick_sort(right)
 ```
+
+</details>
 
 ### 7-堆排序
 ***时间复杂度：O(n log n) 空间复杂度：O(1)***
@@ -486,8 +509,7 @@ def quick_sort(arr):
 3. 将剩余的元素重新构造成一个堆。
 4. 重复上述步骤，直到所有元素均排序完毕。
 
-代码实现
-- C++
+代码实现<details><summary>C++</summary>
 
 ```cpp
 // 时间复杂度：O(n log n) 空间复杂度：O(1)
@@ -520,7 +542,9 @@ void heapSort(vector<int>& arr) {
     }
 }
 ```
-- C#
+
+</details>
+<details><summary>C#</summary>
 
 ```csharp
 // 时间复杂度：O(n log n) 空间复杂度：O(1)
@@ -552,7 +576,9 @@ private static void Heapify(int[] arr, int n, int i) {
     }
 }
 ```
-- Python
+
+</details>
+<details><summary>Python</summary>
 
 ```python
 # 时间复杂度：O(n log n) 空间复杂度：O(1)
@@ -581,6 +607,8 @@ def heap_sort(arr):
         heapify(arr, i, 0)
 ```
 
+</details>
+
 ### 8-计数排序
 ***时间复杂度：O(n + k) 空间复杂度：O(k)***
 
@@ -593,8 +621,8 @@ def heap_sort(arr):
 2. 根据元素出现的次数将元素排序。
 
 代码实现
-
-- C++
+<details>
+<summary>C++</summary>
 
 ```cpp
 // 时间复杂度：O(n + k) 空间复杂度：O(k)
@@ -620,7 +648,10 @@ void countingSort(vector<int>& arr) {
         arr[i] = output[i];
 }
 ```
-- C#
+
+</details>
+<details>
+<summary>C#</summary>
 
 ```csharp
 // 时间复杂度：O(n + k) 空间复杂度：O(k)
@@ -647,7 +678,9 @@ public static void CountingSort(int[] arr) {
 }
 ```
 
-- Python
+</details>
+<details>
+<summary>Python</summary>
 
 ```python
 # 时间复杂度：O(n + k) 空间复杂度：O(k)
