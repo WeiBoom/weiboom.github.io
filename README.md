@@ -29,6 +29,29 @@ latest version of the **Chirpy** theme and the [CD][CD] workflow to here, so tha
 
 Check out the [theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy/wiki).
 
+## 部署说明（重要）
+
+本仓库通过 `.github/workflows/pages-deploy.yml`（Workflow 名：`Build and Deploy`）构建并发布站点，
+所以 **Settings → Pages → Build and deployment → Source 必须选 `GitHub Actions`**。
+
+若误设为 `Deploy from a branch`（main 分支），GitHub 会在每次 push 时额外运行内置的
+`pages build and deployment`；又因为根目录存在 `.nojekyll`，该流程不会执行 Jekyll 构建，
+而是把**仓库源码原样发布**（包含 `_config.yml`、`Gemfile`、`README.md`、`_posts/*.md`），
+并与 `Build and Deploy` 抢夺发布权，导致站点随机损坏：
+
+- 首页只剩下未渲染的 front matter
+- 所有 `/posts/...` 链接返回 404
+- `_config.yml` / `Gemfile` 等文件可被公网直接下载
+
+排查方式：
+
+```shell
+curl -s https://api.github.com/repos/WeiBoom/weiboom.github.io/pages | grep build_type
+# 正确输出应为 "build_type":"workflow"，而不是 "legacy"
+```
+
+仓促之下救急：在 Actions 里重新运行 `Build and Deploy`（或 `workflow_dispatch`）即可恢复。
+
 ## Contributing
 
 This repository is automatically updated with new releases from the theme repository. If you encounter any issues or want to contribute to its improvement, please visit the [theme repository][chirpy] to provide feedback.
