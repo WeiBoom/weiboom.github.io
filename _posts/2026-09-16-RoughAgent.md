@@ -2,16 +2,15 @@
 title: RoughAgent：一个独属于我的个人 Agent
 date: 2026-09-16
 categories: [Blogging]
-tags: [个人Agent, RoughEngine, Pi内核, Tauri, 前缀缓存, 桌宠丢丢, 三端共享]
+tags: [个人Agent, RoughEngine, Pi内核, Tauri, 前缀缓存, 桌宠丢丢, 三端共享, AI文章]
 media_subpath: /assets/img/posts/roughagent
 image:
   path: cover.png
-  alt: RoughAgent 桌面端 —— 左边是正在写这篇文章的对话，右边是这一轮的数据总览
-description: Rough 不是粗糙，是"有待打磨"。一个跑在自己电脑上的个人 Agent——三端共享同一核心，把每一分钱花在哪里量化到像素级，还有一只叫丢丢的小狗陪我熬夜写代码。
+  alt: RoughAgent 桌面端
+description: Rough不是粗制滥造，而是需要用心打磨
 ---
 
 > **这篇文章本身，就是 RoughAgent 写的。**
-> 下面截图里你看到的，就是它写这篇文章的实时现场。
 
 ---
 
