@@ -161,9 +161,12 @@ _面板上的「上下文治理」就是这份效果账：生效档位、峰值�
 
 ---
 
-**RoughAgent 系列博客**
+**RoughAgent 系列博客**（7 篇，按「总览 → 内核 → 往下每一层」展开）
 
 - [【RoughAgent】 - 属于自己的 Harness 工具](/posts/RoughAgent/) —— 总览：账单、三端、桌宠、五条准则
 - [【RoughAgent】 - 内核是 Pi，以及我为什么选它](/posts/Pi/) —— 内核从哪来
-- **【RoughAgent】 - 上下文也是一笔预算** —— 本篇
-- 计划中：成本账本复盘、验证与授权（测试与评测）
+- **【RoughAgent】 - 上下文也是一笔预算** —— 上下文怎么管 **（本篇）**
+- [【RoughAgent】 - 成本账本复盘](/posts/Cost-Audit/) —— 钱花在哪
+- [【RoughAgent】 - 先证明它没坏，再谈它变好](/posts/Verify/) —— 测试与评测
+- [【RoughAgent】 - 我到底给了它多少自由](/posts/Approval/) —— 审批与权限线
+- [【RoughAgent】 - AI 生成的素材，我凭什么信](/posts/Assets/) —— 素材怎么验收
