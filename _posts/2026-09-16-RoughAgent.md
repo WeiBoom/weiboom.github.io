@@ -1,13 +1,23 @@
 ---
-title: RoughAgent-属于自己的Harness工具
+title: 【RoughAgent】 - 属于自己的 Harness 工具
 date: 2026-09-16
-categories: [Blogging]
+categories: [Blogging, RoughAgent]
+pin: true
 tags: [AI Agent, 前缀缓存, Tauri, 桌宠, 开源]
 media_subpath: /assets/img/posts/roughagent
 image:
   path: cover.webp
   alt: RoughAgent 的像素风与现代风两套皮肤并排对比
 description: 一个跑在自己电脑上的 Agent。它不讲“我很智能”，它讲这轮花了多少钱、钱花在哪一步、为什么这么省。
+---
+
+**RoughAgent 系列博客**（本系列按“总览 → 内核 → 往下每一层”展开）
+
+- [【RoughAgent】 - 属于自己的 Harness 工具](/posts/RoughAgent/) —— **本篇（总览）**：账单、三端、桌宠、五条准则
+- [【RoughAgent】 - 内核是 Pi，以及我为什么选它](/posts/Pi/) —— 内核从哪来，为什么是 Pi
+- [【RoughAgent】 - 上下文也是一笔预算](/posts/Context-Budget/) —— 上下文怎么管、怎么证明省了
+- 计划中：成本账本复盘、验证与授权（测试与评测）
+
 ---
 
 先说个可能有点扫兴的开场：我做这个东西的起因，不是我想要一个多酷的 Agent。
