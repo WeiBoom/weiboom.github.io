@@ -15,7 +15,7 @@ description: 一个跑在自己电脑上的 Agent。它不讲“我很智能”�
 
 - **【RoughAgent】 - 属于自己的 Harness 工具** —— 总览：账单、三端、桌宠、五条准则 **（本篇）**
 - [【RoughAgent】 - 内核是 Pi，以及我为什么选它](/posts/Pi/) —— 内核从哪来、生态长什么样
-- [【RoughAgent】 - 我为了这个 Agent 做了什么](/posts/What-I-Did/) —— 长文：上下文、账本、验证、授权、素材
+- [【RoughAgent】 - 我为了这个 Agent 做了什么](/posts/What-I-Did/) —— 实现说明：上下文、账本、验证、授权
 
 ---
 
