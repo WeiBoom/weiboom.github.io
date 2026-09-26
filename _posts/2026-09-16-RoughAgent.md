@@ -11,15 +11,11 @@ image:
 description: 一个跑在自己电脑上的 Agent。它不讲“我很智能”，它讲这轮花了多少钱、钱花在哪一步、为什么这么省。
 ---
 
-**RoughAgent 系列博客**（7 篇，按「总览 → 内核 → 往下每一层」展开）
+**RoughAgent 系列博客**（3 篇）
 
 - **【RoughAgent】 - 属于自己的 Harness 工具** —— 总览：账单、三端、桌宠、五条准则 **（本篇）**
-- [【RoughAgent】 - 内核是 Pi，以及我为什么选它](/posts/Pi/) —— 内核从哪来
-- [【RoughAgent】 - 上下文也是一笔预算](/posts/Context-Budget/) —— 上下文怎么管
-- [【RoughAgent】 - 成本账本复盘](/posts/Cost-Audit/) —— 钱花在哪
-- [【RoughAgent】 - 先证明它没坏，再谈它变好](/posts/Verify/) —— 测试与评测
-- [【RoughAgent】 - 我到底给了它多少自由](/posts/Approval/) —— 审批与权限线
-- [【RoughAgent】 - AI 生成的素材，我凭什么信](/posts/Assets/) —— 素材怎么验收
+- [【RoughAgent】 - 内核是 Pi，以及我为什么选它](/posts/Pi/) —— 内核从哪来、生态长什么样
+- [【RoughAgent】 - 我为了这个 Agent 做了什么](/posts/What-I-Did/) —— 长文：上下文、账本、验证、授权、素材
 
 ---
 
