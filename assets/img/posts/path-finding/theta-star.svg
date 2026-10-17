@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 492 400" role="img" aria-label="Theta* 动画：探针沿任意角度直线前进，只在障碍角点处拐弯，路径比栅格 A* 更短更平滑">
+  <defs>
+    <pattern id="g" width="36" height="36" patternUnits="userSpaceOnUse" x="30" y="64">
+      <path d="M 36 0 H 0 V 36" fill="none" stroke="#cbd5e1" stroke-width="1"/>
+    </pattern>
+    <style>
+      .t{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+      .title{font-size:15px;font-weight:700;fill:#1e293b}
+      .sub{font-size:11px;fill:#64748b}
+      .lg{font-size:10.5px;fill:#475569}
+      .cap{font-size:10.5px;fill:#475569}
+      @keyframes walk{
+        0%,6%{transform:translate(0px,0px)}
+        43%{transform:translate(126px,54px)}
+        53%{transform:translate(162px,54px)}
+        88%,96%{transform:translate(288px,36px)}
+        100%{transform:translate(0px,0px)}
+      }
+      .probe{animation:walk 9s linear infinite}
+      @keyframes draw{
+        0%,6%{stroke-dashoffset:300}
+        43%{stroke-dashoffset:163}
+        53%{stroke-dashoffset:127}
+        88%,96%{stroke-dashoffset:0}
+        100%{stroke-dashoffset:300}
+      }
+      .tp{animation:draw 9s linear infinite;stroke-dasharray:300}
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="492" height="400" rx="10" fill="#f8fafc"/>
+  <text class="t title" x="24" y="27">Theta*：任意角度连线，只在障碍角点处拐弯</text>
+  <text class="t sub"   x="24" y="46">只要视线可直达，父节点就能跳过栅格拐角，路径更短、更平滑</text>
+
+  <rect x="30" y="64" width="432" height="252" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <rect x="30" y="64" width="432" height="252" fill="url(#g)"/>
+
+  <!-- wall -->
+  <rect x="210" y="100" width="36" height="144" rx="3" fill="#475569"/>
+
+  <!-- A* grid path -->
+  <polyline points="84,190 84,262 372,262 372,226" fill="none" stroke="#94a3b8" stroke-width="3" stroke-dasharray="7 6"/>
+
+  <!-- Theta* any-angle path -->
+  <polyline class="tp" pathLength="300" points="84,190 210,244 246,244 372,226" fill="none" stroke="#0f766e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- corner marker -->
+  <circle cx="210" cy="244" r="6" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+  <text class="t" x="196" y="270" font-size="10.5" font-weight="700" fill="#b45309" text-anchor="end">障碍角点</text>
+
+  <!-- start / goal -->
+  <rect x="66"  y="172" width="36" height="36" rx="4" fill="#16a34a"/>
+  <rect x="354" y="208" width="36" height="36" rx="4" fill="#dc2626"/>
+  <text class="t" x="84"  y="197" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">S</text>
+  <text class="t" x="372" y="233" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">G</text>
+
+  <!-- probe -->
+  <g class="probe">
+    <circle cx="84" cy="190" r="11" fill="#2563eb" fill-opacity="0.2"/>
+    <circle cx="84" cy="190" r="6"  fill="#1d4ed8"/>
+  </g>
+
+  <!-- legend -->
+  <rect x="26"  y="340" width="12" height="12" rx="2" fill="#16a34a"/>
+  <text class="t lg" x="44"  y="350">起点 S</text>
+  <rect x="96"  y="340" width="12" height="12" rx="2" fill="#dc2626"/>
+  <text class="t lg" x="114" y="350">终点 G</text>
+  <circle cx="172" cy="346" r="6" fill="#1d4ed8"/>
+  <text class="t lg" x="184" y="350">探针</text>
+  <line x1="232" y1="346" x2="260" y2="346" stroke="#0f766e" stroke-width="4" stroke-linecap="round"/>
+  <text class="t lg" x="268" y="350">Theta* 路径</text>
+  <line x1="348" y1="346" x2="376" y2="346" stroke="#94a3b8" stroke-width="3" stroke-dasharray="6 5"/>
+  <text class="t lg" x="384" y="350">A* 栅格路径</text>
+
+  <text class="t cap" x="24" y="382">探针在直线上不拐弯；碰到障碍角点才折一次，过后再次拉直——这就是任意角度寻路。</text>
+</svg>

@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 492 400" role="img" aria-label="贪心最佳优先搜索动画：探针始终朝启发值最小的方向前进，绕过障碍后到达终点">
+  <defs>
+    <pattern id="g" width="36" height="36" patternUnits="userSpaceOnUse" x="30" y="64">
+      <path d="M 36 0 H 0 V 36" fill="none" stroke="#cbd5e1" stroke-width="1"/>
+    </pattern>
+    <style>
+      .t{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+      .title{font-size:15px;font-weight:700;fill:#1e293b}
+      .sub{font-size:11px;fill:#64748b}
+      .lg{font-size:10.5px;fill:#475569}
+      .cap{font-size:10.5px;fill:#475569}
+      @keyframes pop{0%{opacity:0}5%{opacity:1}86%{opacity:1}96%{opacity:0}100%{opacity:0}}
+      .vis{animation:pop 9s linear infinite;animation-fill-mode:backwards}
+      @keyframes walk{
+        0%{transform:translate(0px,0px)}
+        5%{transform:translate(36px,0px)}
+        10%{transform:translate(72px,0px)}
+        15%{transform:translate(108px,0px)}
+        20%{transform:translate(144px,0px)}
+        26%{transform:translate(144px,36px)}
+        32%{transform:translate(144px,72px)}
+        38%{transform:translate(180px,72px)}
+        44%{transform:translate(216px,72px)}
+        50%{transform:translate(216px,36px)}
+        56%{transform:translate(216px,0px)}
+        62%{transform:translate(252px,0px)}
+        68%{transform:translate(288px,0px)}
+        74%,96%{transform:translate(324px,0px)}
+        100%{transform:translate(0px,0px)}
+      }
+      .probe{animation:walk 9s linear infinite}
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="492" height="400" rx="10" fill="#f8fafc"/>
+  <text class="t title" x="24" y="27">贪心最佳优先搜索：只看 h，谁离终点近就扩展谁</text>
+  <text class="t sub"   x="24" y="46">没有 g 的约束，它一路朝终点推进；好走但不保证最优</text>
+
+  <rect x="30" y="64" width="432" height="252" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <rect x="30" y="64" width="432" height="252" fill="url(#g)"/>
+
+  <!-- explored / path cells -->
+  <g fill="#dbeafe">
+    <rect x="66"  y="172" width="36" height="36"/>
+    <rect x="102" y="172" width="36" height="36"/>
+    <rect x="138" y="172" width="36" height="36"/>
+    <rect x="174" y="172" width="36" height="36"/>
+    <rect x="210" y="172" width="36" height="36"/>
+    <rect x="210" y="208" width="36" height="36"/>
+    <rect x="210" y="244" width="36" height="36"/>
+    <rect x="246" y="244" width="36" height="36"/>
+    <rect x="282" y="244" width="36" height="36"/>
+    <rect x="282" y="208" width="36" height="36"/>
+    <rect x="282" y="172" width="36" height="36"/>
+    <rect x="318" y="172" width="36" height="36"/>
+    <rect x="354" y="172" width="36" height="36"/>
+  </g>
+
+  <!-- wall -->
+  <rect x="246" y="64"  width="36" height="36" rx="3" fill="#475569"/>
+  <rect x="246" y="100" width="36" height="36" rx="3" fill="#475569"/>
+  <rect x="246" y="136" width="36" height="36" rx="3" fill="#475569"/>
+  <rect x="246" y="172" width="36" height="36" rx="3" fill="#475569"/>
+  <rect x="246" y="208" width="36" height="36" rx="3" fill="#475569"/>
+
+  <!-- start / goal -->
+  <rect x="66"  y="172" width="36" height="36" rx="4" fill="#16a34a"/>
+  <rect x="390" y="172" width="36" height="36" rx="4" fill="#dc2626"/>
+  <text class="t" x="84"  y="197" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">S</text>
+  <text class="t" x="408" y="197" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">G</text>
+
+  <!-- probe -->
+  <g class="probe">
+    <circle cx="84" cy="190" r="11" fill="#2563eb" fill-opacity="0.2"/>
+    <circle cx="84" cy="190" r="6"  fill="#1d4ed8"/>
+  </g>
+
+  <!-- legend -->
+  <rect x="26"  y="340" width="12" height="12" rx="2" fill="#16a34a"/>
+  <text class="t lg" x="44"  y="350">起点 S</text>
+  <rect x="100" y="340" width="12" height="12" rx="2" fill="#dc2626"/>
+  <text class="t lg" x="118" y="350">终点 G</text>
+  <circle cx="186" cy="346" r="6" fill="#1d4ed8"/>
+  <text class="t lg" x="198" y="350">探针</text>
+  <rect x="252" y="340" width="12" height="12" rx="2" fill="#dbeafe" stroke="#93c5fd"/>
+  <text class="t lg" x="270" y="350">已扩展（按 h 排序）</text>
+  <rect x="400" y="340" width="12" height="12" rx="2" fill="#475569"/>
+  <text class="t lg" x="418" y="350">障碍</text>
+
+  <text class="t cap" x="24" y="382">探针沿着 h 最小的格子前进：先直冲终点，被墙挡住后贴着墙向下找到缺口，再折回目标行。</text>
+</svg>

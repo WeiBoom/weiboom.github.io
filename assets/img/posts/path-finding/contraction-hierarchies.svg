@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 492 400" role="img" aria-label="收缩分层动画：逐个小点被收缩并补上等价捷径，最后在稀疏枢纽图上查询并展开真实路径">
+  <defs>
+    <style>
+      .t{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+      .title{font-size:15px;font-weight:700;fill:#1e293b}
+      .sub{font-size:11px;fill:#64748b}
+      .lg{font-size:10.5px;fill:#475569}
+      .cap{font-size:10.5px;fill:#475569}
+      .e{stroke:#cbd5e1;stroke-width:2.5;fill:none}
+      .sc{stroke:#0f766e;stroke-width:2.5;stroke-dasharray:7 5;fill:none}
+      @keyframes draw{0%,12%{stroke-dashoffset:200}16%,68%{stroke-dashoffset:0}74%,96%{stroke-dashoffset:0}100%{stroke-dashoffset:200}}
+      .sc1{animation:draw 12s linear infinite;stroke-dasharray:200}
+      @keyframes sc2{0%,32%{stroke-dashoffset:180}36%,68%{stroke-dashoffset:0}100%{stroke-dashoffset:180}}
+      .sc2{animation:sc2 12s linear infinite;stroke-dasharray:180}
+      @keyframes sc3{0%,52%{stroke-dashoffset:380}56%,68%{stroke-dashoffset:0}100%{stroke-dashoffset:380}}
+      .sc3{animation:sc3 12s linear infinite;stroke-dasharray:380}
+      @keyframes dim{0%,8%{opacity:1}12%,70%{opacity:0.2}74%,100%{opacity:1}}
+      .nA{animation:dim 12s linear infinite}
+      @keyframes dimC{0%,28%{opacity:1}32%,70%{opacity:0.2}74%,100%{opacity:1}}
+      .nC{animation:dimC 12s linear infinite}
+      @keyframes dimB{0%,48%{opacity:1}52%,70%{opacity:0.2}74%,100%{opacity:1}}
+      .nB{animation:dimB 12s linear infinite}
+      @keyframes flash{0%,6%{opacity:0}10%{opacity:0.9}16%,100%{opacity:0}}
+      .rA{animation:flash 12s linear infinite}
+      @keyframes flashC{0%,26%{opacity:0}30%{opacity:0.9}36%,100%{opacity:0}}
+      .rC{animation:flashC 12s linear infinite}
+      @keyframes flashB{0%,46%{opacity:0}50%{opacity:0.9}56%,100%{opacity:0}}
+      .rB{animation:flashB 12s linear infinite}
+      @keyframes msgA{0%,5%{opacity:0}9%,24%{opacity:1}28%,100%{opacity:0}}
+      .mA{animation:msgA 12s linear infinite}
+      @keyframes msgC{0%,26%{opacity:0}30%,44%{opacity:1}48%,100%{opacity:0}}
+      .mC{animation:msgC 12s linear infinite}
+      @keyframes msgB{0%,46%{opacity:0}50%,64%{opacity:1}68%,100%{opacity:0}}
+      .mB{animation:msgB 12s linear infinite}
+      @keyframes msgQ{0%,66%{opacity:0}70%,92%{opacity:1}96%,100%{opacity:0}}
+      .mQ{animation:msgQ 12s linear infinite}
+      @keyframes reveal{0%,74%{stroke-dashoffset:524}79%{stroke-dashoffset:390}84%{stroke-dashoffset:255}89%{stroke-dashoffset:120}94%,96%{stroke-dashoffset:0}100%{stroke-dashoffset:524}}
+      .pth{animation:reveal 12s linear infinite;stroke-dasharray:524}
+      @keyframes walk{
+        0%,74%{transform:translate(0px,0px)}
+        79%{transform:translate(100px,-90px)}
+        84%{transform:translate(200px,0px)}
+        89%{transform:translate(300px,-90px)}
+        94%,96%{transform:translate(380px,0px)}
+        100%{transform:translate(0px,0px)}
+      }
+      .probe{animation:walk 12s linear infinite}
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="492" height="400" rx="10" fill="#f8fafc"/>
+  <text class="t title" x="24" y="27">Contraction Hierarchies：收缩小点，补捷径，只搜枢纽</text>
+  <text class="t sub"   x="24" y="46">把不重要的小点逐个收掉并补上等价捷径，查询时只在稀疏枢纽图上进行</text>
+
+  <!-- messages -->
+  <g class="mA">
+    <rect x="150" y="74" width="220" height="26" rx="6" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+    <text class="t" x="260" y="91" font-size="11" font-weight="700" fill="#b45309" text-anchor="middle">收缩 A：删掉度为 2 的点，补捷径</text>
+  </g>
+  <g class="mC">
+    <rect x="150" y="74" width="220" height="26" rx="6" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+    <text class="t" x="260" y="91" font-size="11" font-weight="700" fill="#b45309" text-anchor="middle">收缩 C：同样补出 B—G 捷径</text>
+  </g>
+  <g class="mB">
+    <rect x="150" y="74" width="220" height="26" rx="6" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+    <text class="t" x="260" y="91" font-size="11" font-weight="700" fill="#b45309" text-anchor="middle">收缩 B：新图只剩 S 和 G 两个点</text>
+  </g>
+  <g class="mQ">
+    <rect x="150" y="74" width="220" height="26" rx="6" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+    <text class="t" x="260" y="91" font-size="11" font-weight="700" fill="#b45309" text-anchor="middle">查询：稀疏图搜索 → 展开真实路径</text>
+  </g>
+
+  <!-- original edges -->
+  <g class="e">
+    <line x1="60"  y1="240" x2="160" y2="150"/>
+    <line x1="160" y1="150" x2="260" y2="240"/>
+    <line x1="260" y1="240" x2="360" y2="150"/>
+    <line x1="360" y1="150" x2="440" y2="240"/>
+  </g>
+
+  <!-- shortcuts -->
+  <line class="sc sc1" x1="60"  y1="240" x2="260" y2="240"/>
+  <line class="sc sc2" x1="260" y1="240" x2="440" y2="240"/>
+  <line class="sc sc3" x1="60"  y1="240" x2="440" y2="240"/>
+
+  <!-- contract rings -->
+  <circle class="rA" cx="160" cy="150" r="22" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="5 4"/>
+  <circle class="rC" cx="360" cy="150" r="22" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="5 4"/>
+  <circle class="rB" cx="260" cy="240" r="22" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="5 4"/>
+
+  <!-- final path -->
+  <polyline class="pth" pathLength="524" points="60,240 160,150 260,240 360,150 440,240" fill="none" stroke="#0f766e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- nodes -->
+  <g class="nA">
+    <circle cx="160" cy="150" r="14" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+    <text class="t" x="160" y="155" font-size="12" fill="#1e293b" text-anchor="middle">A</text>
+  </g>
+  <g class="nC">
+    <circle cx="360" cy="150" r="14" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+    <text class="t" x="360" y="155" font-size="12" fill="#1e293b" text-anchor="middle">C</text>
+  </g>
+  <g class="nB">
+    <circle cx="260" cy="240" r="14" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+    <text class="t" x="260" y="245" font-size="12" fill="#1e293b" text-anchor="middle">B</text>
+  </g>
+  <circle cx="60"  cy="240" r="14" fill="#16a34a"/>
+  <circle cx="440" cy="240" r="14" fill="#dc2626"/>
+  <text class="t" x="60"  y="245" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">S</text>
+  <text class="t" x="440" y="245" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">G</text>
+
+  <!-- probe -->
+  <g class="probe">
+    <circle cx="60" cy="240" r="11" fill="#2563eb" fill-opacity="0.2"/>
+    <circle cx="60" cy="240" r="6"  fill="#1d4ed8"/>
+  </g>
+
+  <!-- legend -->
+  <rect x="26"  y="340" width="12" height="12" rx="2" fill="#16a34a"/>
+  <text class="t lg" x="44"  y="350">起点 S</text>
+  <rect x="96"  y="340" width="12" height="12" rx="2" fill="#dc2626"/>
+  <text class="t lg" x="114" y="350">目标 G</text>
+  <circle cx="172" cy="346" r="6" fill="#1d4ed8"/>
+  <text class="t lg" x="184" y="350">探针</text>
+  <line x1="240" y1="346" x2="268" y2="346" stroke="#0f766e" stroke-width="2.5" stroke-dasharray="7 5"/>
+  <text class="t lg" x="276" y="350">等价捷径</text>
+  <line x1="356" y1="346" x2="384" y2="346" stroke="#0f766e" stroke-width="4" stroke-linecap="round"/>
+  <text class="t lg" x="392" y="350">展开路径</text>
+
+  <text class="t cap" x="24" y="382">小点收掉后，它的两条边被一条等长捷径替代；查询只在少量枢纽节点上进行。</text>
+</svg>

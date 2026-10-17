@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 492 400" role="img" aria-label="双向搜索动画：蓝色波前从起点、红色波前从终点同时扩展，在中间相遇">
+  <defs>
+    <style>
+      .t{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+      .title{font-size:15px;font-weight:700;fill:#1e293b}
+      .sub{font-size:11px;fill:#64748b}
+      .lg{font-size:10.5px;fill:#475569}
+      .cap{font-size:10.5px;fill:#475569}
+      .node{fill:#ffffff;stroke:#94a3b8;stroke-width:2}
+      @keyframes pop{0%{opacity:0}5%{opacity:1}88%{opacity:1}97%{opacity:0}100%{opacity:0}}
+      .f{animation:pop 10s linear infinite;animation-fill-mode:backwards}
+      @keyframes meet{0%,26%{opacity:0}32%{opacity:1}46%{opacity:1}54%{opacity:0}100%{opacity:0}}
+      .m{animation:meet 10s linear infinite;animation-fill-mode:backwards}
+      @keyframes draw{0%,40%{stroke-dashoffset:520}78%,100%{stroke-dashoffset:0}}
+      .path{stroke-dasharray:520;stroke-dashoffset:520;animation:draw 10s linear infinite}
+      @keyframes walk{
+        0%,40%{transform:translate(0px,0px)}
+        47%{transform:translate(80px,0px)}
+        54%{transform:translate(160px,0px)}
+        61%{transform:translate(160px,70px)}
+        68%{transform:translate(240px,70px)}
+        75%,94%{transform:translate(320px,70px)}
+        100%{transform:translate(0px,0px)}
+      }
+      .probe{animation:walk 10s linear infinite}
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="492" height="400" rx="10" fill="#f8fafc"/>
+  <text class="t title" x="24" y="27">双向搜索：两个方向同时扩展，在中间相遇</text>
+  <text class="t sub"   x="24" y="46">总扩展量约为单向搜索的两倍半径内的节点数，而不是一直铺到终点</text>
+
+  <!-- edges -->
+  <g stroke="#cbd5e1" stroke-width="1.5">
+    <line x1="60"  y1="80"  x2="140" y2="80"/><line x1="140" y1="80"  x2="220" y2="80"/><line x1="220" y1="80"  x2="300" y2="80"/><line x1="300" y1="80"  x2="380" y2="80"/>
+    <line x1="60"  y1="150" x2="140" y2="150"/><line x1="140" y1="150" x2="220" y2="150"/><line x1="220" y1="150" x2="300" y2="150"/><line x1="300" y1="150" x2="380" y2="150"/>
+    <line x1="60"  y1="220" x2="140" y2="220"/><line x1="140" y1="220" x2="220" y2="220"/><line x1="220" y1="220" x2="300" y2="220"/><line x1="300" y1="220" x2="380" y2="220"/>
+    <line x1="60"  y1="290" x2="140" y2="290"/><line x1="140" y1="290" x2="220" y2="290"/><line x1="220" y1="290" x2="300" y2="290"/><line x1="300" y1="290" x2="380" y2="290"/>
+    <line x1="60"  y1="80"  x2="60"  y2="150"/><line x1="60"  y1="150" x2="60"  y2="220"/><line x1="60"  y1="220" x2="60"  y2="290"/>
+    <line x1="140" y1="80"  x2="140" y2="150"/><line x1="140" y1="150" x2="140" y2="220"/><line x1="140" y1="220" x2="140" y2="290"/>
+    <line x1="220" y1="80"  x2="220" y2="150"/><line x1="220" y1="150" x2="220" y2="220"/><line x1="220" y1="220" x2="220" y2="290"/>
+    <line x1="300" y1="80"  x2="300" y2="150"/><line x1="300" y1="150" x2="300" y2="220"/><line x1="300" y1="220" x2="300" y2="290"/>
+    <line x1="380" y1="80"  x2="380" y2="150"/><line x1="380" y1="150" x2="380" y2="220"/><line x1="380" y1="220" x2="380" y2="290"/>
+  </g>
+
+  <!-- forward frontier (blue) -->
+  <g fill="#2563eb" stroke="#1d4ed8" stroke-width="2">
+    <circle class="f" style="animation-delay:0s"   cx="60"  cy="150" r="11"/>
+    <circle class="f" style="animation-delay:.7s"  cx="140" cy="150" r="11"/><circle class="f" style="animation-delay:.7s" cx="60" cy="80" r="11"/><circle class="f" style="animation-delay:.7s" cx="60" cy="220" r="11"/>
+    <circle class="f" style="animation-delay:1.4s" cx="220" cy="150" r="11"/><circle class="f" style="animation-delay:1.4s" cx="140" cy="80" r="11"/><circle class="f" style="animation-delay:1.4s" cx="140" cy="220" r="11"/><circle class="f" style="animation-delay:1.4s" cx="60" cy="290" r="11"/>
+    <circle class="f" style="animation-delay:2.1s" cx="300" cy="150" r="11"/><circle class="f" style="animation-delay:2.1s" cx="220" cy="80" r="11"/><circle class="f" style="animation-delay:2.1s" cx="220" cy="220" r="11"/><circle class="f" style="animation-delay:2.1s" cx="140" cy="290" r="11"/>
+  </g>
+  <!-- backward frontier (red) -->
+  <g fill="#dc2626" stroke="#b91c1c" stroke-width="2">
+    <circle class="f" style="animation-delay:0s"   cx="380" cy="220" r="11"/>
+    <circle class="f" style="animation-delay:.7s"  cx="300" cy="220" r="11"/><circle class="f" style="animation-delay:.7s" cx="380" cy="150" r="11"/><circle class="f" style="animation-delay:.7s" cx="380" cy="290" r="11"/>
+    <circle class="f" style="animation-delay:1.4s" cx="220" cy="220" r="11"/><circle class="f" style="animation-delay:1.4s" cx="300" cy="150" r="11"/><circle class="f" style="animation-delay:1.4s" cx="300" cy="290" r="11"/>
+  </g>
+
+  <!-- meeting -->
+  <g class="m">
+    <circle cx="220" cy="220" r="16" fill="none" stroke="#f59e0b" stroke-width="3"/>
+    <circle cx="300" cy="150" r="16" fill="none" stroke="#f59e0b" stroke-width="3"/>
+  </g>
+
+  <!-- final path -->
+  <g class="path" fill="none" stroke="#0f766e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="60,150 140,150 220,150 220,220 300,220 380,220"/>
+  </g>
+  <g class="probe">
+    <circle cx="60" cy="150" r="13" fill="#14b8a6" fill-opacity="0.25"/>
+    <circle cx="60" cy="150" r="6"  fill="#0f766e"/>
+  </g>
+
+  <text class="t" x="60"  y="180" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">S</text>
+  <text class="t" x="380" y="250" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">G</text>
+
+  <!-- legend -->
+  <circle cx="32"  cy="346" r="6" fill="#2563eb"/>
+  <text class="t lg" x="44"  y="350">从 S 向前</text>
+  <circle cx="130" cy="346" r="6" fill="#dc2626"/>
+  <text class="t lg" x="142" y="350">从 G 向后</text>
+  <circle cx="232" cy="346" r="7" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+  <text class="t lg" x="246" y="350">相遇点</text>
+  <line x1="310" y1="346" x2="338" y2="346" stroke="#0f766e" stroke-width="4"/>
+  <text class="t lg" x="346" y="350">最终路径</text>
+
+  <text class="t cap" x="24" y="382">两个方向各自只扩展到相遇点附近；相遇后把两段拼起来，就是最短路径。</text>
+</svg>

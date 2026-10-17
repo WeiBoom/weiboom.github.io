@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 492 400" role="img" aria-label="D* Lite 动画：机器人沿旧路径前进，途中出现新障碍，算法局部重规划并绕行到达目标">
+  <defs>
+    <pattern id="g" width="36" height="36" patternUnits="userSpaceOnUse" x="30" y="64">
+      <path d="M 36 0 H 0 V 36" fill="none" stroke="#cbd5e1" stroke-width="1"/>
+    </pattern>
+    <style>
+      .t{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+      .title{font-size:15px;font-weight:700;fill:#1e293b}
+      .sub{font-size:11px;fill:#64748b}
+      .lg{font-size:10.5px;fill:#475569}
+      .cap{font-size:10.5px;fill:#475569}
+      @keyframes oldPath{0%,32%{opacity:0.85}42%,90%{opacity:0}96%,100%{opacity:0.85}}
+      .p1{animation:oldPath 10s linear infinite}
+      @keyframes newPath{0%,45%{stroke-dashoffset:288}88%,96%{stroke-dashoffset:0}100%{stroke-dashoffset:288}}
+      .p2{animation:newPath 10s linear infinite;stroke-dasharray:288}
+      @keyframes obsIn{0%,25%{opacity:0}31%,92%{opacity:1}97%,100%{opacity:0}}
+      .obs{animation:obsIn 10s linear infinite;animation-fill-mode:backwards}
+      @keyframes msgIn{0%,31%{opacity:0}37%,88%{opacity:1}93%,100%{opacity:0}}
+      .msg{animation:msgIn 10s linear infinite;animation-fill-mode:backwards}
+      @keyframes robot{
+        0%,6%{transform:translate(0px,0px)}
+        25%,45%{transform:translate(108px,0px)}
+        50.4%{transform:translate(108px,-36px)}
+        61.2%{transform:translate(180px,-36px)}
+        66.6%{transform:translate(180px,0px)}
+        88%,96%{transform:translate(324px,0px)}
+        100%{transform:translate(0px,0px)}
+      }
+      .rb{animation:robot 10s linear infinite}
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="492" height="400" rx="10" fill="#f8fafc"/>
+  <text class="t title" x="24" y="27">D* Lite：走一半遇到新障碍，局部重规划继续走</text>
+  <text class="t sub"   x="24" y="46">只重算受影响区域的代价，不必从头再搜一遍，适合边走边感知的机器人</text>
+
+  <rect x="30" y="64" width="432" height="252" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <rect x="30" y="64" width="432" height="252" fill="url(#g)"/>
+
+  <!-- old path -->
+  <line class="p1" x1="84" y1="190" x2="408" y2="190" stroke="#14b8a6" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- new path -->
+  <polyline class="p2" pathLength="288" points="192,190 192,154 264,154 264,190 408,190" fill="none" stroke="#0f766e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- start / goal -->
+  <rect x="66"  y="172" width="36" height="36" rx="4" fill="#16a34a"/>
+  <rect x="390" y="172" width="36" height="36" rx="4" fill="#dc2626"/>
+  <text class="t" x="84"  y="197" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">S</text>
+  <text class="t" x="408" y="197" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">G</text>
+
+  <!-- new obstacle -->
+  <g class="obs">
+    <rect x="210" y="172" width="36" height="36" rx="3" fill="#475569"/>
+    <rect x="206" y="168" width="44" height="44" rx="5" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+    <text class="t" x="228" y="160" font-size="10.5" font-weight="700" fill="#b45309" text-anchor="middle">新障碍！</text>
+  </g>
+
+  <!-- replan message -->
+  <g class="msg">
+    <rect x="286" y="86" width="176" height="26" rx="6" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+    <text class="t" x="374" y="103" font-size="11" font-weight="700" fill="#b45309" text-anchor="middle">检测到新障碍 → 局部重规划</text>
+  </g>
+
+  <!-- robot -->
+  <g class="rb">
+    <circle cx="84" cy="190" r="11" fill="#2563eb" fill-opacity="0.2"/>
+    <circle cx="84" cy="190" r="6"  fill="#1d4ed8"/>
+  </g>
+
+  <!-- legend -->
+  <rect x="26"  y="340" width="12" height="12" rx="2" fill="#16a34a"/>
+  <text class="t lg" x="44"  y="350">起点 S</text>
+  <rect x="96"  y="340" width="12" height="12" rx="2" fill="#dc2626"/>
+  <text class="t lg" x="114" y="350">目标 G</text>
+  <circle cx="172" cy="346" r="6" fill="#1d4ed8"/>
+  <text class="t lg" x="184" y="350">机器人</text>
+  <line x1="240" y1="346" x2="268" y2="346" stroke="#14b8a6" stroke-width="4" stroke-linecap="round"/>
+  <text class="t lg" x="276" y="350">旧路径</text>
+  <line x1="336" y1="346" x2="364" y2="346" stroke="#0f766e" stroke-width="4" stroke-linecap="round"/>
+  <text class="t lg" x="372" y="350">新路径</text>
+
+  <text class="t cap" x="24" y="382">旧路径被拦腰截断后，D* Lite 复用旧搜索信息，只重算受影响区域，给出绕行方案。</text>
+</svg>

@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 492 400" role="img" aria-label="IDA* 动画：f 值阈值逐轮放大，深度优先搜索一轮比一轮更深，最终到达目标">
+  <defs>
+    <style>
+      .t{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+      .title{font-size:15px;font-weight:700;fill:#1e293b}
+      .sub{font-size:11px;fill:#64748b}
+      .lg{font-size:10.5px;fill:#475569}
+      .cap{font-size:10.5px;fill:#475569}
+      .node{fill:#ffffff;stroke:#94a3b8;stroke-width:2}
+      @keyframes pop{0%{opacity:0}5%{opacity:1}86%{opacity:1}95%{opacity:0}100%{opacity:0}}
+      .f{animation:pop 9s linear infinite;animation-fill-mode:backwards}
+      @keyframes bound{0%,28%{transform:translateY(0)}38%,60%{transform:translateY(70px)}70%,100%{transform:translateY(140px)}}
+      .bnd{animation:bound 9s linear infinite}
+      @keyframes pathIn{0%,66%{opacity:0}72%,94%{opacity:1}100%{opacity:0}}
+      .pth{animation:pathIn 9s linear infinite;animation-fill-mode:backwards}
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="492" height="400" rx="10" fill="#f8fafc"/>
+  <text class="t title" x="24" y="27">IDA*：每一轮只做到阈值为止的深度优先搜索</text>
+  <text class="t sub"   x="24" y="46">超过阈值就回溯，下一轮把阈值放大，直到找到目标</text>
+
+  <!-- edges -->
+  <g stroke="#cbd5e1" stroke-width="2">
+    <line x1="246" y1="70" x2="170" y2="140"/>
+    <line x1="246" y1="70" x2="330" y2="140"/>
+    <line x1="170" y1="140" x2="110" y2="210"/>
+    <line x1="170" y1="140" x2="230" y2="210"/>
+    <line x1="330" y1="140" x2="290" y2="210"/>
+    <line x1="330" y1="140" x2="410" y2="210"/>
+    <line x1="230" y1="210" x2="230" y2="280"/>
+  </g>
+  <g class="pth" stroke="#0f766e" stroke-width="4" stroke-linecap="round">
+    <line x1="246" y1="70" x2="170" y2="140"/>
+    <line x1="170" y1="140" x2="230" y2="210"/>
+    <line x1="230" y1="210" x2="230" y2="280"/>
+  </g>
+
+  <!-- bound line -->
+  <g class="bnd">
+    <line x1="40" y1="140" x2="452" y2="140" stroke="#f59e0b" stroke-width="2" stroke-dasharray="7 5"/>
+    <text class="t" x="452" y="134" font-size="10.5" font-weight="700" fill="#b45309" text-anchor="end">f 阈值</text>
+  </g>
+
+  <!-- nodes -->
+  <circle class="node" cx="246" cy="70"  r="14" fill="#16a34a"/>
+  <circle class="node" cx="170" cy="140" r="14"/>
+  <circle class="node" cx="330" cy="140" r="14"/>
+  <circle class="node" cx="110" cy="210" r="14"/>
+  <circle class="node" cx="230" cy="210" r="14"/>
+  <circle class="node" cx="290" cy="210" r="14"/>
+  <circle class="node" cx="410" cy="210" r="14"/>
+  <circle class="node" cx="230" cy="280" r="14" fill="#dc2626"/>
+
+  <!-- explored (round 1) -->
+  <g class="f" style="animation-delay:0s" fill="#dbeafe" stroke="#2563eb" stroke-width="2">
+    <circle cx="170" cy="140" r="10"/><circle cx="330" cy="140" r="10"/>
+  </g>
+  <!-- explored (round 2) -->
+  <g class="f" style="animation-delay:1.2s" fill="#dbeafe" stroke="#2563eb" stroke-width="2">
+    <circle cx="110" cy="210" r="10"/><circle cx="230" cy="210" r="10"/><circle cx="290" cy="210" r="10"/><circle cx="410" cy="210" r="10"/>
+  </g>
+
+  <text class="t" x="246" y="75"  font-size="12" font-weight="700" fill="#fff" text-anchor="middle">S</text>
+  <text class="t" x="230" y="285" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">G</text>
+  <text class="t" x="170" y="145" font-size="10" fill="#1e293b" text-anchor="middle">A</text>
+  <text class="t" x="230" y="215" font-size="10" fill="#1e293b" text-anchor="middle">D</text>
+
+  <!-- legend -->
+  <rect x="26"  y="340" width="12" height="12" rx="2" fill="#16a34a"/>
+  <text class="t lg" x="44"  y="350">起点 S</text>
+  <rect x="100" y="340" width="12" height="12" rx="2" fill="#dc2626"/>
+  <text class="t lg" x="118" y="350">目标 G</text>
+  <circle cx="186" cy="346" r="6" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text class="t lg" x="198" y="350">本轮扩展</text>
+  <line x1="266" y1="346" x2="294" y2="346" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6 4"/>
+  <text class="t lg" x="302" y="350">f 阈值（逐轮放大）</text>
+
+  <text class="t cap" x="24" y="382">第 1 轮只展开到阈值，够不到 G 就回溯；放大阈值再来一轮，直到某轮正好够到目标。</text>
+</svg>
