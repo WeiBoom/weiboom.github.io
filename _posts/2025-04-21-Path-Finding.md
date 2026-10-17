@@ -4,6 +4,11 @@ author: WEI
 date: 2025-04-21
 categories: [Blogging]
 tags: [算法, 寻路]
+media_subpath: /assets/img/posts/path-finding
+image:
+  path: cover.gif
+  alt: 网格寻路动画演示
+description: 常见寻路算法整理，含 BFS、DFS、Dijkstra、A*、Bellman-Ford、Floyd-Warshall、JPS 的原理、难度/实用性对比、Python 示例与动画演示。
 ---
 
 # 寻路算法合集
@@ -32,6 +37,9 @@ tags: [算法, 寻路]
 - **劣势**: 不考虑边权重，在大型图中效率较低
 - **权威应用**: BFS 是图论基础算法，广泛用于迷宫求解、棋盘最短路径、社交网络距离计算（如 "六度分隔"）和最小步数问题。
 - **典型案例**: LeetCode 127《单词接龙》、二维网格最短路径、棋盘走法搜索。
+
+![广度优先搜索动画演示](bfs.gif)
+_广度优先搜索（BFS）：按层向四周扩展，逐层遍历_
 
 #### BFS 示例：网格最短路径
 ```python
@@ -70,6 +78,9 @@ print(bfs_shortest_path(maze, (0,0), (1,3)))  # 输出 4
 - **权威应用**: Dijkstra 是 GPS 与网络路由中的核心算法，OSPF、Google Maps、地图服务等都基于其变体进行最短路径计算。
 - **典型案例**: 道路导航、流量路由、公共交通路径规划。
 
+![Dijkstra 算法动画演示](dijkstra.gif)
+_Dijkstra：从起点出发，每次取出当前距离最小的节点并松弛其邻居_
+
 #### Dijkstra 示例：带权图最短路径
 ```python
 import heapq
@@ -106,6 +117,9 @@ print(dijkstra(graph, 'A'))  # 输出 {'A':0,'B':3,'C':1,'D':4}
 - **劣势**: 启发函数设计复杂，不当的启发函数可能导致次优解
 - **权威应用**: A* 被广泛用于游戏引擎（Unity、Unreal、Pathfinding.js）、机器人导航、自动驾驶车辆和实时仿真路径规划。
 - **典型案例**: 游戏 AI 单位移动、机器人地图导航、地图服务中的启发式搜索。
+
+![A* 算法动画演示](a-star.gif)
+_A*：在 Dijkstra 基础上加入启发函数，优先朝目标方向扩展_
 
 #### A* 示例：网格寻路
 ```python
@@ -158,6 +172,9 @@ print(a_star(grid, (0,0), (3,3)))
 - **权威应用**: DFS 常用于拓扑排序、强连通分量、程序依赖分析、图的连通性检查、迷宫生成和搜索问题。
 - **典型案例**: 拓扑排序（编译器模块依赖）、深度搜索解谜、回溯算法。
 
+![深度优先搜索动画演示](dfs.gif)
+_深度优先搜索（DFS）：沿一条路径走到底再回溯_
+
 #### DFS 示例：图遍历与拓扑排序
 ```python
 def dfs(graph, node, visited, result):
@@ -186,6 +203,9 @@ print(result[::-1])  # 拓扑排序输出 ['A','C','B','D'] 或 ['A','B','C','D'
 - **劣势**: 时间复杂度高，在大型图上效率低
 - **权威应用**: Bellman-Ford 是 RIP 路由协议、距离向量路由以及金融网络中负权边和货币套利检测的基础算法。
 - **典型案例**: 网络路由距离向量更新、带负权边的最短路径、循环套利检测。
+
+![Bellman-Ford 算法动画演示](bellman-ford.gif)
+_Bellman-Ford：对所有边反复松弛，可处理负权边并检测负权环_
 
 #### Bellman-Ford 示例：检测负权环
 ```python
@@ -220,6 +240,9 @@ print(bellman_ford(edges, nodes, 'A'))
 - **权威应用**: Floyd-Warshall 常用于小型网络路由表预计算、地图服务距离矩阵、社交网络全对最短路径分析。
 - **典型案例**: APSP（所有点对最短路径）计算、旅行时间表预处理。
 
+![Floyd-Warshall 算法动画演示](floyd-warshall.gif)
+_Floyd-Warshall：依次以每个点为中转点，更新所有点对的距离_
+
 #### Floyd-Warshall 示例：所有点对最短路径
 ```python
 def floyd_warshall(dist):
@@ -248,19 +271,31 @@ print(floyd_warshall(dist))
 - **权威应用**: JPS 在游戏开发、RTS 单位寻路、2D 网格地图路径规划中广泛应用，是 A* 网格优化的重要技术。
 - **典型案例**: 实时策略游戏单位移动、tile-based 游戏地图寻路、Pathfinding.js 优化算法。
 
+![Jump Point Search 跳跃探测动画](jps.svg)
+_Jump Point Search：沿方向逐格探测，遇到强制邻居时产生跳点，中间的普通格被跳过_
+
 #### JPS 示例：网格跳点搜索核心逻辑
 ```python
+def in_bounds(grid, x, y):
+    return 0 <= x < len(grid) and 0 <= y < len(grid[0])
+
 def jump(grid, node, direction, goal):
     x, y = node
     dx, dy = direction
     nx, ny = x + dx, y + dy
-    if not (0 <= nx < len(grid) and 0 <= ny < len(grid[0]) and grid[nx][ny] == 0):
+    if not (in_bounds(grid, nx, ny) and grid[nx][ny] == 0):
         return None
     if (nx, ny) == goal:
         return (nx, ny)
-    if dx != 0 and (grid[nx][y+1] == 1 and grid[x][y+1] == 0 or grid[nx][y-1] == 1 and grid[x][y-1] == 0):
+    if dx != 0 and (
+        (in_bounds(grid, nx, y + 1) and grid[nx][y + 1] == 1 and grid[x][y + 1] == 0)
+        or (in_bounds(grid, nx, y - 1) and grid[nx][y - 1] == 1 and grid[x][y - 1] == 0)
+    ):
         return (nx, ny)
-    if dy != 0 and (grid[x+1][ny] == 1 and grid[x+1][y] == 0 or grid[x-1][ny] == 1 and grid[x-1][y] == 0):
+    if dy != 0 and (
+        (in_bounds(grid, x + 1, ny) and grid[x + 1][ny] == 1 and grid[x + 1][y] == 0)
+        or (in_bounds(grid, x - 1, ny) and grid[x - 1][ny] == 1 and grid[x - 1][y] == 0)
+    ):
         return (nx, ny)
     return jump(grid, (nx, ny), direction, goal)
 ```
@@ -301,12 +336,10 @@ def jump(grid, node, direction, goal):
   - 提供逐步执行和动画展示，适合对比 BFS、DFS、Dijkstra、A* 的搜索过程。
 - PathFinding.js 可视化演示：https://qiao.github.io/PathFinding.js/visual/
   - 在线网格寻路示例，支持 A*、Dijkstra、BFS、Jump Point Search 等算法。
-- Graph Algorithm Visualization (USFCA) ：https://www.cs.usfca.edu/~galles/visualization/Algorithms.html
+- 图算法动画（USFCA，作者 David Galles）：https://www.cs.usfca.edu/~galles/visualization/Algorithms.html
   - 包含 BFS、DFS、Dijkstra、Floyd-Warshall 等算法的动画演示。
 - Red Blob Games A* 教程：https://www.redblobgames.com/pathfinding/a-star/introduction.html
   - 详细解释启发式搜索原理，并配有可交互演示。
-- David Galles 图算法动画：https://www.cs.usfca.edu/~galles/visualization/Algorithms.html
-  - 包含 BFS、DFS、Dijkstra、Floyd-Warshall 等算法的动画演示。
 - A* Pathfinding Project（游戏寻路工具）：https://arongranberg.com/astar/
   - 专注于游戏和实时寻路的 A* 与 JPS 实现与案例。
 
@@ -317,3 +350,19 @@ def jump(grid, node, direction, goal):
 4. 如果想要游戏级别的优化，参考 A* Pathfinding Project 的 JPS 及 A* 引擎实现。
 
 > 这些网站既可以作为课堂演示材料，也适合自己逐步调试、观察每一步算法的运行过程。
+
+---
+
+## 图片来源
+
+文中的算法动画来自 [Wikimedia Commons](https://commons.wikimedia.org/)，按原作者的许可使用，作者与许可如下：
+
+- BFS：[Breadth-First-Search-Algorithm.gif](https://commons.wikimedia.org/wiki/File:Breadth-First-Search-Algorithm.gif)，作者 Mre，CC BY-SA 3.0
+- DFS：[Depth-First-Search.gif](https://commons.wikimedia.org/wiki/File:Depth-First-Search.gif)，作者 Mre，CC BY-SA 3.0
+- Floyd-Warshall：[Floyd warshall gif.gif](https://commons.wikimedia.org/wiki/File:Floyd_warshall_gif.gif)，作者 GER2000，CC BY-SA 4.0
+- Dijkstra：[Dijkstra Animation.gif](https://commons.wikimedia.org/wiki/File:Dijkstra_Animation.gif)，作者 Ibmua，Public domain
+- Bellman-Ford：[Bellman-Ford.gif](https://commons.wikimedia.org/wiki/File:Bellman-Ford.gif)，作者 Mohammad444t，CC BY-SA 4.0
+- A*：[Astar progress animation.gif](https://commons.wikimedia.org/wiki/File:Astar_progress_animation.gif)，作者 Subh83，CC BY 3.0
+- 封面：[BFS (Breadth First Search) for pathfinding.gif](https://commons.wikimedia.org/wiki/File:BFS_(Breadth_First_Search)_for_pathfinding.gif)，作者 Mohammad444t，CC BY-SA 4.0
+
+其中 JPS 的动画为本文自绘（内联 SVG），Wikimedia 上暂无该算法的动图。

@@ -4,6 +4,11 @@ author: WEI
 date: 2026-04-14
 categories: [Blogging]
 tags: [AI, AIGC, LLM, Agent, MCP, RAG]
+media_subpath: /assets/img/posts/from-transformer-to-agent
+image:
+  path: transformer-architecture.png
+  alt: Transformer 完整架构图
+description: 从 Transformer 到大模型、多模态、Agent、Skill、Tool Calling、CLI、MCP、Prompt、Fine-tuning、RAG、Harness Engineering 的 AI 核心名词梳理，配结构图帮助建立"AI 名词地图"。
 ---
 
 
@@ -41,7 +46,7 @@ tags: [AI, AIGC, LLM, Agent, MCP, RAG]
 
 > 建议在阅读本篇时，配合上述图示页面浏览，可以直观感受 Transformer、Agent、RAG 等概念的体系结构和流程。
 
-# 总览
+## 总览
 
 本文主要梳理当下 AI 浪潮中各种核心名词的含义、作用与所处的层级位置，帮助读者从宏观上建立一张"AI 名词地图"。
 
@@ -68,6 +73,9 @@ tags: [AI, AIGC, LLM, Agent, MCP, RAG]
 **通俗类比**：如果把大模型比作"超级大脑"，Transformer 就是大脑的"神经中枢"，没有它，大模型就无法正常思考和工作。
 
 **结构要点**：自注意力让模型"看到整句话"，编码器理解输入，解码器生成输出（现代主流大模型多采用仅解码器 Decoder-only 结构）。
+
+![Transformer 完整架构图](transformer-architecture.png)
+_Transformer 完整架构：左侧编码器堆叠，右侧解码器堆叠_
 
 ## 二、核心主体：AI的"超级大脑"
 
@@ -178,6 +186,9 @@ tags: [AI, AIGC, LLM, Agent, MCP, RAG]
 
 **通俗类比**：如果 Tool Calling 是"每个工具都要单独接一根专用线"，MCP 就是统一了插座形状的"标准接口"，插上就能用。
 
+![MCP 组件结构图](mcp.svg)
+_MCP 组件结构：客户端与多个 Server 通过标准协议连接_
+
 ### 9. Prompt（提示词） {#prompt}
 
 **核心定义**：用户给 AI 的"指令"，是 AI 理解用户需求、生成对应输出的关键，相当于"和 AI 沟通的语言"。
@@ -218,6 +229,9 @@ tags: [AI, AIGC, LLM, Agent, MCP, RAG]
 **工作流程要点**：接收问题 → 检索知识库 → 召回相关文档 → 文档内容与问题一同送入模型 → 生成并输出回答。
 
 **参考链接**：[Pinecone RAG 介绍](https://www.pinecone.io/learn/rag/)
+
+![RAG 工作流程图](rag.svg)
+_RAG 工作流程：问题先检索知识库，召回文档再与问题一起送入模型_
 
 ### 12. Harness Engineering（驾驭工程） {#harness-engineering}
 
@@ -283,3 +297,13 @@ tags: [AI, AIGC, LLM, Agent, MCP, RAG]
 | Fine-tuning | 优化手段 | 通过再训练改变模型权重 |
 | RAG | 优化手段 | 通过外挂知识库补充信息 |
 | Harness Engineering | 系统层 | 通过环境与闭环提升可靠性 |
+
+---
+
+## 图片来源
+
+文中的结构图来自 [Wikimedia Commons](https://commons.wikimedia.org/)，按原作者的许可使用，作者与许可如下：
+
+- Transformer 架构图：[Transformer, full architecture.png](https://commons.wikimedia.org/wiki/File:Transformer,_full_architecture.png)，作者 dvgodoy，CC BY 4.0
+- MCP 组件结构图：[Model Context Protocol Component diagram.svg](https://commons.wikimedia.org/wiki/File:Model_Context_Protocol_Component_diagram.svg)，作者 modelcontextprotocol developers，MIT
+- RAG 工作流程图：[RAG diagram.svg](https://commons.wikimedia.org/wiki/File:RAG_diagram.svg)，作者 Turtlecrown，CC BY-SA 4.0

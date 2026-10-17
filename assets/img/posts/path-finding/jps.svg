@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 390" role="img" aria-label="Jump Point Search 跳跃探测动画：探针沿行逐格探测，遇到强制邻居产生跳点，再继续前进直到终点">
+  <defs>
+    <pattern id="jps-grid" width="40" height="40" patternUnits="userSpaceOnUse" x="30" y="70">
+      <path d="M 40 0 H 0 V 40" fill="none" stroke="#cbd5e1" stroke-width="1"/>
+    </pattern>
+    <style>
+      .t  { font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+      .title { font-size: 15px; font-weight: 700; fill: #1e293b; }
+      .sub   { font-size: 11px; fill: #64748b; }
+      .lg    { font-size: 10.5px; fill: #475569; }
+      .cap   { font-size: 10.5px; fill: #475569; }
+      .cellc { font-size: 14px; font-weight: 700; fill: #ffffff; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="460" height="390" rx="10" fill="#f8fafc"/>
+
+  <text class="t title" x="24" y="27">Jump Point Search：沿方向跳跃，遇到跳点才停</text>
+  <text class="t sub"   x="24" y="46">蓝色探针沿行逐格探测；发现强制邻居时，该格即被标记为跳点</text>
+
+  <!-- grid -->
+  <rect x="30" y="70" width="400" height="240" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <rect x="30" y="70" width="400" height="240" fill="url(#jps-grid)"/>
+
+  <!-- start / goal cells -->
+  <rect x="71" y="191" width="38" height="38" rx="5" fill="#16a34a"/>
+  <rect x="351" y="191" width="38" height="38" rx="5" fill="#dc2626"/>
+
+  <!-- obstacles -->
+  <rect x="231" y="151" width="38" height="38" rx="5" fill="#475569"/>
+  <rect x="111" y="71"  width="38" height="38" rx="5" fill="#475569"/>
+  <rect x="351" y="271" width="38" height="38" rx="5" fill="#475569"/>
+
+  <!-- scan path -->
+  <line x1="90" y1="210" x2="370" y2="210" stroke="#2563eb" stroke-width="2" stroke-dasharray="6 5" opacity="0.3"/>
+
+  <!-- forced-neighbour highlight -->
+  <rect x="231" y="151" width="38" height="38" rx="5" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="4 3">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.16;0.20;0.34;0.40;1" dur="8s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- jump-point highlight -->
+  <rect x="191" y="191" width="38" height="38" rx="5" fill="#fde68a" fill-opacity="0.6" stroke="#f59e0b" stroke-width="2.5">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.16;0.20;0.34;0.40;1" dur="8s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- goal reached highlight -->
+  <rect x="351" y="191" width="38" height="38" rx="5" fill="#fecaca" fill-opacity="0.75" stroke="#dc2626" stroke-width="2.5">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.60;0.64;0.80;0.86;1" dur="8s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- letters -->
+  <text class="t cellc" x="90"  y="216" text-anchor="middle">S</text>
+  <text class="t cellc" x="370" y="216" text-anchor="middle">G</text>
+
+  <!-- probe -->
+  <g>
+    <circle cx="90" cy="210" r="11" fill="#2563eb" fill-opacity="0.2"/>
+    <circle cx="90" cy="210" r="6"  fill="#1d4ed8"/>
+    <animateTransform attributeName="transform" type="translate"
+      values="0 0; 40 0; 80 0; 120 0; 120 0; 160 0; 200 0; 240 0; 280 0; 280 0; 0 0"
+      keyTimes="0; 0.06; 0.12; 0.18; 0.36; 0.42; 0.48; 0.54; 0.62; 0.90; 1"
+      dur="8s" repeatCount="indefinite" calcMode="discrete"/>
+  </g>
+
+  <!-- legend -->
+  <rect x="26"  y="328" width="12" height="12" rx="2" fill="#16a34a"/>
+  <text class="t lg" x="44"  y="338">起点 S</text>
+  <rect x="100" y="328" width="12" height="12" rx="2" fill="#dc2626"/>
+  <text class="t lg" x="118" y="338">终点 G</text>
+  <circle cx="186" cy="334" r="6" fill="#1d4ed8"/>
+  <text class="t lg" x="198" y="338">探针</text>
+  <rect x="252" y="328" width="12" height="12" rx="2" fill="#fde68a" stroke="#f59e0b" stroke-width="1.5"/>
+  <text class="t lg" x="270" y="338">跳点 / 强制邻居</text>
+  <rect x="374" y="328" width="12" height="12" rx="2" fill="#475569"/>
+  <text class="t lg" x="392" y="338">障碍</text>
+
+  <text class="t cap" x="24" y="372">探针从 S 向右探测：越过无强制邻居的普通格，遇到 (5,2) 障碍、(4,3) 产生强制邻居时标记为跳点，再继续向右直达终点 G。</text>
+</svg>

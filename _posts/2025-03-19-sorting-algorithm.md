@@ -4,6 +4,11 @@ author: WEI
 date: 2025-03-19
 categories: [Blogging]
 tags: [Algorithm]
+media_subpath: /assets/img/posts/sorting-algorithm
+image:
+  path: cover.gif
+  alt: 快速排序动画演示
+description: 常见排序算法整理，含冒泡、选择、插入、希尔、归并、快速、堆、计数排序的复杂度对比、C++ / C# / Python 实现与动画演示。
 ---
 
 ## 排序算法
@@ -17,7 +22,6 @@ tags: [Algorithm]
 可以通过[可视化排序算法](https://visualgo.net/zh/sorting)网站查看效果。
 
 ## 算法复杂度 {#算法复杂度}
----
 
 | 排序算法       | 时间复杂度       | 空间复杂度 | 最好情况       | 最坏情况       |
 |--------------|---------------|---------|-------------|-------------|
@@ -36,6 +40,9 @@ tags: [Algorithm]
 
 ### 1-冒泡排序
 ***时间复杂度：O(n²) 最好O(n) 空间复杂度：O(1)***
+
+![冒泡排序动画演示](bubble.gif)
+_冒泡排序：相邻元素两两比较，顺序错误就交换_
 
 冒泡排序（Bubble Sort）是一种简单的排序算法，它重复地走访要排序的数列，一次比较两个元素，如果它们的顺序错误就把它们交换过来
 
@@ -110,7 +117,10 @@ def bubble_sort(arr):
 </details>
 
 ### 2-选择排序
-***时间复杂度：O(n²) 最好O(n) 空间复杂度：O(1)***
+***时间复杂度：O(n²) 最好O(n²) 空间复杂度：O(1)***
+
+![选择排序动画演示](selection.gif)
+_选择排序：每轮从未排序区间选出最小值，放到已排序末尾_
 
 选择排序（Selection Sort）是一种简单直观的排序算法，它的基本思想是：每次从未排序的元素中选择最小的一个元素，放到已排序序列的末尾。
 
@@ -187,6 +197,9 @@ def selection_sort(arr):
 ### 3-插入排序
 ***时间复杂度：O(n²) 最好O(n) 空间复杂度：O(1)***
 
+![插入排序动画演示](insertion.gif)
+_插入排序：把当前元素插入到前面已排序序列的合适位置_
+
 插入排序（Insertion Sort）是一种简单直观的排序算法，它的基本思想是：将待排序的元素逐个插入到已排序的序列中，从而得到一个有序的序列。
 
 插入排序的主要优点在于它实现简单，并且对于小规模数据的排序效果较好。但是，由于其时间复杂度为O(n²)，因此不适用于大规模数据的排序。
@@ -257,7 +270,10 @@ def insertion_sort(arr):
 </details>
 
 ### 4-希尔排序
-***时间复杂度：O(n²) 最好O(n) 空间复杂度：O(1)***
+***时间复杂度：O(n log n) ~ O(n²) 最好O(n log n) 空间复杂度：O(1)***
+
+![希尔排序动画演示](shell.gif)
+_希尔排序：按增量分组做插入排序，逐步缩小增量_
 
 希尔排序（Shell Sort）是一种改进的插入排序算法，它的基本思想是：将待排序的序列分成若干个子序列，对每个子序列进行插入排序，然后逐步缩小子序列的长度，最终得到一个有序的序列。
 
@@ -336,9 +352,12 @@ def shell_sort(arr):
 ### 5-归并排序
 ***时间复杂度：O(n log n) 空间复杂度：O(n)***
 
+![归并排序动画演示](merge.gif)
+_归并排序：递归拆分，再把两个有序子序列合并_
+
 归并排序（Merge Sort）是一种基于分治思想的排序算法，它的基本思想是：将待排序的序列分成若干个子序列，对每个子序列进行排序，然后将排序好的子序列合并成一个有序的序列。
 
-归并排序的主要优点在于它可以将两个有序的子序列合并成一个有序的序列，从而提高排序的效率。但是，由于其时间复杂度为O(n log n)，因此不适用于大规模数据的排序。
+归并排序的主要优点在于它是稳定排序、时间复杂度稳定为 O(n log n)，适合大规模数据排序；代价是需要 O(n) 的额外空间。
 
 - 归并排序的步骤如下：
 1. 将待排序序列分成两个子序列。
@@ -446,9 +465,12 @@ def merge(left, right):
 ### 6-快速排序
 ***时间复杂度：O(n log n) 最坏O(n²) 空间复杂度：O(log n)***
 
+![快速排序动画演示](quick.gif)
+_快速排序：选取基准分区，再对两侧递归排序_
+
 快速排序（Quick Sort）是一种基于分治思想的排序算法，它的基本思想是：通过一趟排序将待排序序列分成两个子序列，其中一个子序列的所有元素都比另一个子序列的所有元素小，然后对这两个子序列分别进行快速排序，最终将整个序列排序。
 
-快速排序的主要优点在于它可以将序列分成两个子序列，从而减少排序的比较次数，从而提高排序的效率。但是，由于其时间复杂度为O(n log n)，因此不适用于大规模数据的排序。
+快速排序的主要优点在于原地排序、平均性能好、常数因子小，适合大规模数据排序；最坏情况（如已有序且基准选择不佳）会退化为 O(n²)。
 
 - 快速排序的步骤如下：
 1. 选择一个基准元素，将序列分成两个子序列，其中一个子序列的所有元素都比基准元素小，另一个子序列的所有元素都比基准元素大。
@@ -536,9 +558,12 @@ def quick_sort(arr):
 ### 7-堆排序
 ***时间复杂度：O(n log n) 空间复杂度：O(1)***
 
+![堆排序动画演示](heap.gif)
+_堆排序：构建大顶堆，反复交换堆顶与堆底并重建堆_
+
 堆排序（Heap Sort）是一种基于堆数据结构的排序算法，它的基本思想是：将待排序序列构造成一个大顶堆或小顶堆，然后将堆顶元素与堆底元素交换，然后将剩余的元素重新构造成一个堆，重复上述步骤，最终得到一个有序的序列。
 
-堆排序的主要优点在于它可以将序列分成两个子序列，从而减少排序的比较次数，从而提高排序的效率。但是，由于其时间复杂度为O(n log n)，因此不适用于大规模数据的排序。
+堆排序的主要优点是原地排序，时间复杂度稳定在 O(n log n)，适合大规模数据排序。
 
 - 堆排序的步骤如下：
 1. 将待排序序列构造成一个大顶堆或小顶堆。
@@ -656,9 +681,12 @@ def heap_sort(arr):
 ### 8-计数排序
 ***时间复杂度：O(n + k) 空间复杂度：O(k)***
 
+![计数排序动画演示](counting.gif)
+_计数排序：统计每个值的出现次数，再按计数还原序列_
+
 计数排序（Counting Sort）是一种非比较排序算法，它的基本思想是：统计待排序序列中每个元素出现的次数，然后根据元素出现的次数将元素排序。
 
-计数排序的主要优点在于它可以将序列分成两个子序列，从而减少排序的比较次数，从而提高排序的效率。但是，由于其时间复杂度为O(n + k)，因此不适用于大规模数据的排序。
+计数排序的主要优点是非比较排序，时间复杂度为 O(n + k)，适合整数且取值范围 k 不大的场景；当 k 很大时会占用大量额外空间，不适合使用。
 
 - 计数排序的步骤如下：
 1. 统计待排序序列中每个元素出现的次数。
@@ -753,3 +781,19 @@ def counting_sort(arr):
 ```
 
 </details>
+
+---
+
+## 图片来源
+
+文中的算法动画来自 [Wikimedia Commons](https://commons.wikimedia.org/)，按原作者的许可使用，作者与许可如下：
+
+- 冒泡排序：[Sorting bubblesort anim.gif](https://commons.wikimedia.org/wiki/File:Sorting_bubblesort_anim.gif)，作者 Simpsons contributor，CC BY-SA 3.0
+- 选择排序：[Sorting selection sort anim.gif](https://commons.wikimedia.org/wiki/File:Sorting_selection_sort_anim.gif)，作者 Suaudeau，CC BY-SA 4.0
+- 插入排序：[Sorting insertion sort anim.gif](https://commons.wikimedia.org/wiki/File:Sorting_insertion_sort_anim.gif)，作者 Suaudeau，CC BY-SA 4.0
+- 希尔排序：[Sorting shellsort anim2.gif](https://commons.wikimedia.org/wiki/File:Sorting_shellsort_anim2.gif)，作者 Suaudeau，CC BY-SA 4.0
+- 归并排序：[Merge-sort-example-300px.gif](https://commons.wikimedia.org/wiki/File:Merge-sort-example-300px.gif)，作者 Swfung8，CC BY-SA 3.0
+- 快速排序：[Sorting quicksort anim.gif](https://commons.wikimedia.org/wiki/File:Sorting_quicksort_anim.gif)，作者 RolandH，CC BY-SA 3.0
+- 堆排序：[Sorting heapsort anim.gif](https://commons.wikimedia.org/wiki/File:Sorting_heapsort_anim.gif)，作者 RolandH，CC BY-SA 3.0
+- 计数排序：[CountingSort.gif](https://commons.wikimedia.org/wiki/File:CountingSort.gif)，作者 Ahsconnecticut，CC BY-SA 4.0
+- 封面：[Quicksort.gif](https://commons.wikimedia.org/wiki/File:Quicksort.gif)，作者 Simpsons contributor，CC BY-SA 3.0
