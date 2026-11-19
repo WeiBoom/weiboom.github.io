@@ -207,12 +207,84 @@ function roughEngine() {
   return frame('GAME ENGINE', `${floor}${cube}${dots}${axes}`);
 }
 
+/* ---------- 6. 手搓 vs 智能：抖动笔画收敛为规整方波 ---------- */
+function handmadeVsAi() {
+  const y0 = 315;
+  const xa = 372;
+  const xb = 908;
+  let seed = 20261110;
+  const rnd = () => {
+    seed = (seed * 1103515245 + 12345) % 2147483648;
+    return seed / 2147483648;
+  };
+
+  const pts = [];
+  // 手搓段：振幅与毛刺逐渐收敛
+  for (let x = xa; x <= 600; x += 10) {
+    const t = (x - xa) / 228;
+    const amp = 30 * (1 - t * 0.62);
+    const y = y0 + Math.sin((x - xa) / 24) * amp + (rnd() - 0.5) * 12 * (1 - t);
+    pts.push([x, y]);
+  }
+  // 机器段：严格等宽方波
+  const step = 44;
+  const hi = y0 - 28;
+  const lo = y0 + 28;
+  for (let x = 600, i = 0; x <= xb - step; x += step, i++) {
+    const y = i % 2 === 0 ? hi : lo;
+    pts.push([x, y]);
+    pts.push([x + step / 2, y]);
+    pts.push([x + step / 2, i % 2 === 0 ? lo : hi]);
+  }
+  pts.push([xb, y0 + 28]);
+
+  const poly = pts.map(([x, y]) => `${x},${y}`).join(' ');
+
+  // 左侧手写毛边，右侧规整短条
+  let scratch = '';
+  for (let i = 0; i < 4; i++) {
+    const sx = 392 + i * 46;
+    const tilt = (rnd() - 0.5) * 5;
+    scratch += `<line x1="${sx}" y1="${400 + tilt}" x2="${sx + 30}" y2="${404 - tilt}" stroke="#fb923c" stroke-opacity="${(0.30 - i * 0.05).toFixed(2)}" stroke-width="2.4" stroke-linecap="round"/>`;
+  }
+  let neat = '';
+  for (let i = 0; i < 4; i++) {
+    neat += `<rect x="${762 + i * 38}" y="398" width="26" height="9" rx="4" fill="#5eead4" fill-opacity="${(0.34 - i * 0.05).toFixed(2)}"/>`;
+  }
+
+  const extraDefs = `<defs>
+<linearGradient id="ink" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#fb923c" stop-opacity="0.95"/>
+<stop offset="0.34" stop-color="#f0b45c" stop-opacity="0.9"/>
+<stop offset="0.52" stop-color="#5eead4" stop-opacity="0.92"/>
+<stop offset="1" stop-color="#5eead4" stop-opacity="1"/>
+</linearGradient>
+</defs>`;
+
+  return frame(
+    'HANDMADE / AI',
+    `${extraDefs}
+<g transform="translate(96,0)">
+<line x1="${xa - 34}" y1="${y0}" x2="${xb + 34}" y2="${y0}" stroke="#ffffff" stroke-opacity="0.05"/>
+<polyline points="${poly}" fill="none" stroke="url(#ink)" stroke-opacity="0.14" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="${poly}" fill="none" stroke="url(#ink)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="${xa}" cy="${y0 + Math.sin(0) * 30}" r="7" fill="#fb923c"/>
+<circle cx="${xa}" cy="${y0 + Math.sin(0) * 30}" r="15" fill="none" stroke="#fb923c" stroke-opacity="0.34" stroke-width="2"/>
+<circle cx="${xb}" cy="${y0 + 28}" r="7" fill="#5eead4"/>
+<circle cx="${xb}" cy="${y0 + 28}" r="15" fill="none" stroke="#5eead4" stroke-opacity="0.34" stroke-width="2"/>
+${scratch}
+${neat}
+</g>`
+  );
+}
+
 const jobs = [
   ['sorting', sorting()],
   ['path', pathFinding()],
   ['ai', aiNames()],
   ['agent', roughAgent()],
-  ['engine', roughEngine()]
+  ['engine', roughEngine()],
+  ['handmade', handmadeVsAi()]
 ];
 
 for (const [name, svg] of jobs) {
