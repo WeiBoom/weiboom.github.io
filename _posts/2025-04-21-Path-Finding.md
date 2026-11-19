@@ -6,12 +6,10 @@ categories: [Blogging]
 tags: [算法, 寻路]
 media_subpath: /assets/img/posts/path-finding
 image:
-  path: cover.gif
-  alt: 网格寻路动画演示
+  path: cover.webp
+  alt: 网格寻路路径示意
 description: 常见寻路算法整理：BFS、DFS、Dijkstra、A*、Bellman-Ford、Floyd-Warshall、JPS 的原理与对比，含贪心最佳优先、双向搜索、加权 A*、IDA*、Theta*、D* Lite、SPFA、Yen、RRT、势场法以及 HPA*、CH、ALT、PRM 等进阶算法，配 Python 示例与动画演示。
 ---
-
-# 寻路算法合集
 
 > （注：文档部分内容可能由 AI 生成）
 

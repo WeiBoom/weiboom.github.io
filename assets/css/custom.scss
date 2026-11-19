@@ -1,0 +1,185 @@
+---
+---
+
+/* ============================================================
+   自定义样式层 —— 覆盖 Chirpy 主题默认值
+   同时兼容 light / dark 双主题，不修改主题源码，升级安全
+   ============================================================ */
+
+/* ---------- 1. 字体：英文走主题自带，中文显式指定优先级 ---------- */
+body {
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC",
+    "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.01em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.post-title,
+#post-list .card-title {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Helvetica Neue",
+    Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.015em;
+}
+
+/* ---------- 2. 主题令牌 ---------- */
+/* Light：加深正文与次要文字，提高层次 */
+@mixin light-tokens {
+  --text-color: #2f333a;
+  --text-muted-color: #5a616e;
+  --heading-color: #14161a;
+  --link-color: #0b5fd0;
+  --link-underline-color: #c7d6ea;
+  --post-list-text-color: #474e5c;
+  --card-bg: #ffffff;
+  --card-hover-bg: #eaeef4;
+  --sidebar-muted-color: #4b525d;
+  --site-subtitle-color: #5a616e;
+  --tb-border-color: #e3e6ea;
+}
+
+/* Dark：提亮正文，卡片与背景分层，避免整页发灰 */
+@mixin dark-tokens {
+  --main-bg: #17181c;
+  --text-color: #d6dae1;
+  --text-muted-color: #9aa3b0;
+  --heading-color: #f2f5f9;
+  --link-color: #6cb6ff;
+  --link-underline-color: #33506e;
+  --post-list-text-color: #c6ccd6;
+  --card-bg: #202227;
+  --card-hover-bg: #2b2f37;
+  --sidebar-bg: #1b1c21;
+  --topbar-bg: rgb(23 24 28 / 64%);
+  --sidebar-muted-color: #9aa3b0;
+  --site-subtitle-color: #9aa3b0;
+  --site-title-color: #e9ecf1;
+  --blockquote-text-color: #a8b0bc;
+  --tb-border-color: #2b2f36;
+  --menu-bg: #202227;
+  --toc-highlight: #6cb6ff;
+}
+
+/* JS 设置 data-bs-theme 之后 */
+:root[data-bs-theme="light"] {
+  @include light-tokens;
+}
+
+:root[data-bs-theme="dark"] {
+  @include dark-tokens;
+}
+
+/* JS 执行前兜底：跟随系统偏好，避免闪一下旧配色 */
+@media (prefers-color-scheme: light) {
+  :root:not([data-bs-theme]) {
+    @include light-tokens;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-bs-theme]) {
+    @include dark-tokens;
+  }
+}
+
+/* ---------- 3. 正文排版：中文行高与段落呼吸 ---------- */
+.content {
+  font-size: 1.09rem;
+  line-height: 1.9;
+  letter-spacing: 0.012em;
+}
+
+.content p {
+  margin-bottom: 1.15rem;
+}
+
+.content h2 {
+  margin-top: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.content h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.7rem;
+}
+
+.content h4 {
+  margin-top: 1.6rem;
+  margin-bottom: 0.55rem;
+}
+
+.content > h1:first-child,
+.content > h2:first-child {
+  margin-top: 0;
+}
+
+.content ul,
+.content ol {
+  margin-bottom: 1.15rem;
+}
+
+.content li {
+  margin: 0.32rem 0;
+}
+
+.content blockquote {
+  margin: 1.4rem 0;
+  padding-left: 1.1rem;
+}
+
+/* ---------- 4. 表格与代码 ---------- */
+.content table {
+  font-size: 0.95rem;
+}
+
+.content table th {
+  font-weight: 600;
+}
+
+.content code:not([class]) {
+  font-size: 0.92em;
+  padding: 0.1em 0.32em;
+  border-radius: 4px;
+}
+
+/* ---------- 5. 首页卡片：拉开间距与内边距 ---------- */
+#post-list .card {
+  margin-bottom: 1.5rem;
+}
+
+#post-list .card-body {
+  padding: 1.5rem 1.6rem;
+}
+
+#post-list .card-title {
+  font-size: 1.28rem;
+  line-height: 1.45;
+  margin-bottom: 0.55rem;
+}
+
+#post-list .card-text {
+  font-size: 0.96rem;
+  line-height: 1.7;
+}
+
+#post-list .post-meta {
+  margin-top: 0.85rem;
+}
+
+/* ---------- 6. 超大屏限制卡片流宽度，避免行过长 ---------- */
+@media (min-width: 1440px) {
+  #post-list {
+    max-width: 1000px;
+  }
+}

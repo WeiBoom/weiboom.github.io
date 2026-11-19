@@ -6,7 +6,7 @@ pin: true
 tags: [AI Agent, Pi, 桌面应用, 插件, 数据透明]
 image:
   path: /assets/img/posts/roughagent-personal/cover.webp
-  alt: RoughAgent 桌面端：会话、任务与账本同屏
+  alt: RoughAgent 三栏界面示意：会话、对话与数据面板
 description: 一个跑在本机的桌面 Agent：首页找活、任务清单、实时账本、数据总览、文件与轨迹、12 个能力插件，还有外观和桌宠。内核是 Pi。
 ---
 

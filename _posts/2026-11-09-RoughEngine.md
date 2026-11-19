@@ -5,7 +5,7 @@ categories: [Blogging, RoughEngine]
 tags: [游戏引擎, AI Agent, Vulkan, C++, 实验项目]
 image:
   path: /assets/img/posts/roughengine/cover.webp
-  alt: RoughEngine 编辑器：层级、场景视图、Inspector 与控制台
+  alt: RoughEngine 场景渲染示意：透视地面与线框物体
 description: 一个用 C++ 和 Vulkan 写的实验性游戏引擎：14 个功能包、内置 Lua 与 C# 脚本、完整编辑器、一条命令构建打包，AI 可以通过 MCP 直接操作，人随时能接手。
 ---
 

@@ -6,13 +6,10 @@ categories: [Blogging]
 tags: [AI, AIGC, LLM, Agent, MCP, RAG]
 media_subpath: /assets/img/posts/from-transformer-to-agent
 image:
-  path: transformer-architecture.png
-  alt: Transformer 完整架构图
+  path: cover.webp
+  alt: 从 Transformer 到 Agent 的概念演进示意
 description: 从 Transformer 到大模型、多模态、Agent、Skill、Tool Calling、CLI、MCP、Prompt、Fine-tuning、RAG、Harness Engineering 的 AI 核心名词梳理，配结构图帮助建立"AI 名词地图"。
 ---
-
-
-# 理解、学习AI核心名词｜从Transformer到Agent
 
 > （注：文档部分内容可能由 AI 生成）
 
@@ -272,7 +269,7 @@ _RAG 工作流程：问题先检索知识库，召回文档再与问题一起送
 
 **AI 名词关系总览**：
 
-```
+```text
 [AI TOPOLOGY]
   Transformer -> 大模型 / 多模态模型 -> Agent
   Agent -> Skill / Tool Calling

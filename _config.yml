@@ -19,7 +19,7 @@ title: Boom # the main title
 tagline: 业精于勤，荒于嬉；行成于思，毁于随。 # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  A minimal, responsive and feature-rich Jekyll theme for technical writing.
+  记录算法、AI 与自研项目的技术笔记。
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
@@ -35,7 +35,7 @@ social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
   name: Wei_Boom
-  email: example@domain.com # change to your email address
+  email: # change to your email address
   links:
     # The first element serves as the copyright owner's link
     - https://github.com/WeiBoom # change to your GitHub homepage

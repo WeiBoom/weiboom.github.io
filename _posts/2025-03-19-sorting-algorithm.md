@@ -6,8 +6,8 @@ categories: [Blogging]
 tags: [Algorithm]
 media_subpath: /assets/img/posts/sorting-algorithm
 image:
-  path: cover.gif
-  alt: 快速排序动画演示
+  path: cover.webp
+  alt: 排序算法复杂度递增示意
 description: 常见排序算法整理，含冒泡、选择、插入、希尔、归并、快速、堆、计数排序的复杂度对比、C++ / C# / Python 实现与动画演示。
 ---
 
@@ -23,16 +23,16 @@ description: 常见排序算法整理，含冒泡、选择、插入、希尔、�
 
 ## 算法复杂度 {#算法复杂度}
 
-| 排序算法       | 时间复杂度       | 空间复杂度 | 最好情况       | 最坏情况       |
-|--------------|---------------|---------|-------------|-------------|
-| [冒泡排序]       | O(n²)           | O(1)      | O(n)          | O(n²)         |
-| [选择排序]       | O(n²)           | O(1)      | O(n²)         | O(n²)         |
-| [插入排序]       | O(n²)           | O(1)      | O(n)          | O(n²)         |
-| [希尔排序]       | O(n log n) ~ O(n²) | O(1)    | O(n log n)    | O(n²)         |
-| [归并排序]       | O(n log n)      | O(n)      | O(n log n)    | O(n log n)    |
-| [快速排序]       | O(n log n)      | O(log n)  | O(n log n)    | O(n²)         |
-| [堆排序]         | O(n log n)      | O(1)      | O(n log n)    | O(n log n)    |
-| [计数排序]       | O(n + k)        | O(k)      | O(n + k)      | O(n + k)      |
+| 排序算法 | 时间复杂度 | 空间复杂度 | 最好情况 | 最坏情况 |
+| --- | --- | --- | --- | --- |
+| 冒泡排序 | O(n²) | O(1) | O(n) | O(n²) |
+| 选择排序 | O(n²) | O(1) | O(n²) | O(n²) |
+| 插入排序 | O(n²) | O(1) | O(n) | O(n²) |
+| 希尔排序 | O(n log n) ~ O(n²) | O(1) | O(n log n) | O(n²) |
+| 归并排序 | O(n log n) | O(n) | O(n log n) | O(n log n) |
+| 快速排序 | O(n log n) | O(log n) | O(n log n) | O(n²) |
+| 堆排序 | O(n log n) | O(1) | O(n log n) | O(n log n) |
+| 计数排序 | O(n + k) | O(k) | O(n + k) | O(n + k) |
 
 ---
 

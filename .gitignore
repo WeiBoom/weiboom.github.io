@@ -25,3 +25,7 @@ package-lock.json
 # Misc
 _sass/vendors
 assets/js/dist
+
+# WorkBuddy 本地数据与封面生成中间产物
+.workbuddy/
+tools/cover/out/
